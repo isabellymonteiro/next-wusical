@@ -1,0 +1,7 @@
+.navbar {
+  color: var(--dark-blue);
+
+  &__link--active {
+    color: var(--light-green);
+  }
+}
