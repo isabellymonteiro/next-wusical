@@ -1,0 +1,51 @@
+.userSettings {
+
+  &__button {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  &__dropdown {
+    display: none;
+    position: fixed;
+    background-color: var(--white);
+    top: 56px;
+    right: 5%;
+    min-width: 200px;
+    margin: 0;
+    z-index: 10;
+    
+    &--open {
+      display: grid;
+      place-items: center;
+      gap: 20px;
+      padding-left: 0;
+      padding: 20px;
+    }
+  }
+
+  &__item {
+    list-style-type: none;
+  }
+
+  &__link {
+    color: var(--dark-blue);
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-decoration: none;
+
+    &:visited, &:link {
+      color: var(--dark-blue);
+    }
+
+    &:hover {
+      color: var(--purple);
+    }
+
+    &--active {
+      border-bottom: 2px solid var(--purple);
+    }
+  }
+}

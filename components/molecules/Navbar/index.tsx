@@ -1,11 +1,12 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import useWindowWidth from '@hooks/useWindowWidth'
 import MenuClose from '@atoms/icons/MenuClose'
 import MenuOpen from '@atoms/icons/MenuOpen'
 
 import classes from './styles.module.scss'
+import Heart from '@components/atoms/icons/Heart'
 
 const navLinks = [
   { name: 'Quiz', path: '/quiz'},
@@ -20,9 +21,8 @@ const Navbar = () => {
   const windowWidth = useWindowWidth()
   
   useEffect(() => {
-    if (windowWidth && windowWidth >= 1024) {
+    if (windowWidth && windowWidth >= 800) {
       setIsMobileMenuOpen(false)
-      console.log(windowWidth)
     }
   }, [windowWidth])
   

@@ -16,7 +16,6 @@
   &__button {
     background-color: transparent;
     border: none;
-    outline: none;
     padding: 0;
     width: 40px;
     height: 40px;
@@ -49,13 +48,17 @@
       color: var(--dark-blue);
     }
 
+    &:hover {
+      color: var(--purple);
+    }
+
     &--active {
       border-bottom: 2px solid var(--purple);
     }
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 800px) {
   .mobileNavbar__button {
     display: none;
   }

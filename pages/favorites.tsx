@@ -1,22 +1,17 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
-const Home: NextPage = () => {
+const Favorites: NextPage = () => {
   return (
     <div>
-      <Head>
+      {/* <Head>
         <title>Wusical</title>
         <meta name="description" content="Women in Music" />
         <link rel="icon" href="/favicon.ico" />
-      </Head>
-      Homepage
-      <div>la</div>
-      <div>la</div>
-      <div>la</div>
-      <div>la</div>
-      <div>la</div>
+      </Head> */}
+      Favorites Page
     </div>
   )
 }
 
-export default Home
+export default Favorites

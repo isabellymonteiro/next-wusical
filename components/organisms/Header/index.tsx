@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import Navbar from '@molecules/Navbar'
+import FavoritesLink from '@atoms/FavoritesLink'
+import UserSettings from '@molecules/UserSettings'
 
 import classes from './styles.module.scss'
 
@@ -11,6 +13,10 @@ const Header = () => {
            <a className={classes.header__logo}>Wusical</a>
         </Link>
         <Navbar />
+        <div className={classes.header__userLinks}>
+          <FavoritesLink />
+          <UserSettings />
+        </div>
       </div>
     </header>
   )
