@@ -5,6 +5,11 @@
     border: none;
     padding: 10px;
     cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+      transform: scale(1.14);
+    }
   }
 
   &__dropdown {
