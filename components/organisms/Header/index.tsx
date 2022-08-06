@@ -1,11 +1,17 @@
-import classes from './styles.module.scss'
+import Link from 'next/link'
 import Navbar from '@molecules/Navbar'
+
+import classes from './styles.module.scss'
 
 const Header = () => {
   return (
-    <header>
-      <p className={classes.paragraph}>header test</p>
-      <Navbar />
+    <header className={classes.header}>
+      <div className={classes.header__content}>
+        <Link href='/'>
+           <a className={classes.header__logo}>Wusical</a>
+        </Link>
+        <Navbar />
+      </div>
     </header>
   )
 }

@@ -1,3 +1,30 @@
-.paragraph {
-  color: var(--dark-pink);
+.header {
+  display: flex;
+  align-content: center;
+  position: sticky;
+  background-color: var(--white);
+  top: 0;
+  left: 0;
+  height: 60px;
+  z-index: 10;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    color: var(--purple);
+    font-size: var(--text-xlarge);
+    font-weight: 800;
+    text-decoration: none;
+
+    &:visited, &:link {
+      color: var(--purple);
+    }
+  }
 }
