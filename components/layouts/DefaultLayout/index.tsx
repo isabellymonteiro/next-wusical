@@ -3,8 +3,8 @@ import Footer from '@organisms/Footer'
 
 import classes from './styles.module.scss'
 
-interface LayoutProps {
-  children: React.ReactNode;
+type LayoutProps = {
+  children: React.ReactNode
 }
 
 export default function DefaultLayout({ children }: LayoutProps) {

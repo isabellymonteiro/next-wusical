@@ -21,7 +21,8 @@
       "@molecules/*": ["components/molecules/*"],
       "@organisms/*": ["components/organisms/*"],
       "@layouts/*": ["components/layouts/*"],
-      "@hooks/*": ["hooks/*"]
+      "@hooks/*": ["hooks/*"],
+      "@utils/*": ["utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

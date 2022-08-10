@@ -6,12 +6,11 @@ import MenuClose from '@atoms/icons/MenuClose'
 import MenuOpen from '@atoms/icons/MenuOpen'
 
 import classes from './styles.module.scss'
-import Heart from '@components/atoms/icons/Heart'
 
 const navLinks = [
-  { name: 'Quiz', path: '/quiz'},
-  { name: 'Discover', path: '/discover'},
-  { name: 'Suggestions', path: '/suggestions'}
+  { name: 'Quiz', path: '/quiz' },
+  { name: 'Discover', path: '/discover' },
+  { name: 'Suggestions', path: '/suggestions' }
 ]
 
 const Navbar = () => {
