@@ -2,11 +2,19 @@ import Link from 'next/link'
 import useSignUp from '@hooks/useSignUp'
 import { validateSignUp } from '@utils/validateSignUp'
 import Input from '@molecules/Input'
+import { createUser } from '@services/api'
 
 import classes from './styles.module.scss'
 
 const SignUpForm = () => {
-  const submit = () => {}
+  const submit = async () => {
+    try {
+      const result = await createUser(signUpData.email, signUpData.password)
+      console.log(result)
+    } catch (e: any) {
+      console.log(e.message)
+    }  
+  }
 
   const { signUpData, signUpDataErrors, handleChange, handleSubmit } =
     useSignUp(submit, validateSignUp)

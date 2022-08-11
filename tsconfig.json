@@ -22,9 +22,11 @@
       "@organisms/*": ["components/organisms/*"],
       "@layouts/*": ["components/layouts/*"],
       "@hooks/*": ["hooks/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@helpers/*": ["helpers/*"],
+      "@services/*": ["services/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "env.d.ts"],
   "exclude": ["node_modules"]
 }

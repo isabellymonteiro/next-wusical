@@ -42,7 +42,7 @@ const useSignUp = (
   }
 
   useEffect(() => {
-    if (Object.keys(signUpDataErrors).length === 0 && isSubmiting) {
+    if (signUpDataErrors.emailError === '' && signUpDataErrors.passwordError === '' && isSubmiting) {
       callback()
       setSignUpData(initialSignUpData)
     }
