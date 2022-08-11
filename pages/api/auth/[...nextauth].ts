@@ -10,7 +10,7 @@ export default NextAuth({
   providers: [
     CredentialsProvider({
       credentials: {},
-      async authorize(credentials: Record<string, string> | undefined) {
+      async authorize(credentials: any) {
         const client = await connectToDatabase()
 
         const usersCollection = client.db().collection('users')
