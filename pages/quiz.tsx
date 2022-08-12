@@ -1,7 +1,16 @@
 import type { NextPage } from 'next'
+import { useSession } from 'next-auth/react'
+import LoadingSpinner from '@atoms/icons/LoadingSpinner'
 import Head from 'next/head'
 
 const Quiz: NextPage = () => {
+  const { data: session, status } = useSession()
+  const loading = status === "loading"
+
+  if (loading) {
+    return <LoadingSpinner />
+  }
+
   return (
     <div>
       {/* <Head>

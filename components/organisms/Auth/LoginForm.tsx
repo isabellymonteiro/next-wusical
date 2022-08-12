@@ -1,6 +1,7 @@
-import { useState, useRef } from 'react'
+import { FormEvent, useRef } from 'react'
 import Link from 'next/link'
 import Input from '@molecules/Input'
+import { signIn } from 'next-auth/react'
 
 import classes from './styles.module.scss'
 
@@ -8,13 +9,24 @@ const LoginForm = () => {
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
 
-  // You have entered an invalid username or password
-  const submit = () => {}
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const result = await signIn('credentials', {
+      redirect: false,
+      email: emailRef?.current?.value,
+      password: passwordRef?.current?.value
+    })
+
+    if (result?.error) {
+      // You have entered an invalid username or password ?
+    }
+    console.log(result)
+  }
 
   return (
     <section>
       <h1 className={classes.authForm__title}>LOG IN</h1>
-      <form className={classes.authForm} onSubmit={() => {}} noValidate>
+      <form className={classes.authForm} onSubmit={submit} noValidate>
         <div className={classes.authForm__inputContainer}>
           <Input
             labelText='Email'
