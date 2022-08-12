@@ -30,7 +30,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   return {
-    props: {},
+    props: {
+      session: JSON.parse(JSON.stringify(session)) 
+      // JSON methods needed due to serializing error when passing just session.
+      // but it may be causing "unhandledRejection: Error: aborted" ?
+    }
   }
 }
 

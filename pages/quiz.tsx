@@ -19,7 +19,7 @@ const Quiz: NextPage = (props) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const session = await unstable_getServerSession(context.req, context.res, authOptions)
-
+  
   if (!session) {
     return {
       redirect: {
@@ -30,7 +30,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   return {
-    props: {},
+    props: {
+      session: JSON.parse(JSON.stringify(session)) 
+      // JSON methods needed due to serializing error when passing just session.
+      // but it may be causing "unhandledRejection: Error: aborted" ?
+    }
   }
 }
 

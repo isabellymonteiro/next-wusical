@@ -7,9 +7,9 @@ import '../styles/globals.css'
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <SessionProvider session={pageProps.session}>
-    <DefaultLayout>
-      <Component {...pageProps} />
-    </DefaultLayout>
+      <DefaultLayout>
+        <Component {...pageProps} />
+      </DefaultLayout>
     </SessionProvider>
   )
 }
