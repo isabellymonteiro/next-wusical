@@ -2,12 +2,15 @@ import { FormEvent, useRef } from 'react'
 import Link from 'next/link'
 import Input from '@molecules/Input'
 import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/router'
 
 import classes from './styles.module.scss'
 
 const LoginForm = () => {
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
+
+  const router = useRouter()
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -19,8 +22,9 @@ const LoginForm = () => {
 
     if (result?.error) {
       // You have entered an invalid username or password ?
+    } else {
+      router.replace('/')
     }
-    console.log(result)
   }
 
   return (
