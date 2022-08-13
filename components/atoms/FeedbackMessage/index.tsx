@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import Close from '@atoms/icons/Close'
 import classes from './styles.module.scss'
 
 export enum MessageStatus {
