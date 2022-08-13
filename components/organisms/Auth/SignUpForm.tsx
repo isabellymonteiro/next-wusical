@@ -8,12 +8,13 @@ import classes from './styles.module.scss'
 
 const SignUpForm = () => {
   const submit = async () => {
-    try {
-      const result = await createUser(signUpData.email, signUpData.password)
-      console.log(result)
-    } catch (e: any) {
-      console.log(e.message)
-    }  
+    const result = await createUser(signUpData.email, signUpData.password)
+    if (result.error) {
+      // TODO
+     console.log(result.error)
+    } else {
+     // TODO: replace para '/'
+    }
   }
 
   const { signUpData, signUpDataErrors, handleChange, handleSubmit } =
