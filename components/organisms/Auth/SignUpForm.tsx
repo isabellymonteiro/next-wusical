@@ -3,17 +3,31 @@ import useSignUp from '@hooks/useSignUp'
 import { validateSignUp } from '@utils/validateSignUp'
 import Input from '@molecules/Input'
 import { createUser } from '@services/api'
+import { useRouter } from 'next/router'
+import { signIn } from 'next-auth/react'
 
 import classes from './styles.module.scss'
 
 const SignUpForm = () => {
+  const router = useRouter()
+
   const submit = async () => {
     const result = await createUser(signUpData.email, signUpData.password)
     if (result.error) {
-      // TODO
+      // TODO: Error creating account
      console.log(result.error)
     } else {
-     // TODO: replace para '/'
+      const result = await signIn('credentials', {
+        redirect: false,
+        email: signUpData.email,
+        password: signUpData.password
+      })
+
+      if (result?.error) {
+        // Account created but something went wrong authenticating. Try logging in!
+      } else {
+        router.replace('/')
+      }
     }
   }
 

@@ -31,7 +31,7 @@ export const authOptions = {
           client.close()
           return { email: user.email } // will be encoded into json webtoken
         } catch (e) {
-          return null
+          return null // throws 401 (Unauthorized)
         }
       }
     })
