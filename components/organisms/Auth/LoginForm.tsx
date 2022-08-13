@@ -21,7 +21,7 @@ const LoginForm = () => {
     })
 
     if (result?.error) {
-      // You have entered an invalid username or password ?
+      // Incorrect username or password
     } else {
       router.replace('/')
     }

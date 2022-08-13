@@ -12,10 +12,9 @@ const SignUpForm = () => {
   const router = useRouter()
 
   const submit = async () => {
-    const result = await createUser(signUpData.email, signUpData.password)
-    if (result.error) {
-      // TODO: Error creating account
-     console.log(result.error)
+    const data = await createUser(signUpData.email, signUpData.password)
+    if (data.error) {
+      // TODO: error toast (data.error) || show on ui (data.error)
     } else {
       const result = await signIn('credentials', {
         redirect: false,

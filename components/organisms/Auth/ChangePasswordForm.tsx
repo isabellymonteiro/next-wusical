@@ -16,7 +16,7 @@ const ChangePasswordForm = () => {
     const enteredOldPassword = oldPasswordRef?.current?.value
     const enteredNewPassword = newPasswordRef?.current?.value
 
-    // TODO: ui ERROR feedback
+    // TODO: ui ERROR feedback (in html)
     if (!enteredOldPassword || enteredOldPassword.trim() === '' || !enteredNewPassword || enteredNewPassword.trim() === '') {
       setPasswordError('Please, type both passwords.')
       return
@@ -31,11 +31,11 @@ const ChangePasswordForm = () => {
     })
 
     if (data.error) {
-       // TODO
+      // TODO: error toast (data.error) || show on ui (data.error)
       console.log(data.error)
     } else {
       console.log(data.message)
-      // TODO: toast mostrando que mudou senha com sucesso
+      // TODO: success toast (data.message)
     }
   }
 
