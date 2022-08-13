@@ -1,20 +1,30 @@
 import Link from 'next/link'
+import { useState } from 'react'
 import useSignUp from '@hooks/useSignUp'
 import { validateSignUp } from '@utils/validateSignUp'
 import Input from '@molecules/Input'
 import { createUser } from '@services/api'
 import { useRouter } from 'next/router'
 import { signIn } from 'next-auth/react'
+import FeedbackMessage, {
+  FeedbackMessageProps,
+  MessageStatus,
+} from '@atoms/FeedbackMessage'
 
 import classes from './styles.module.scss'
 
 const SignUpForm = () => {
+  const [feedbackMessage, setFeedbackMessage] = useState<FeedbackMessageProps | null>(null)
+
   const router = useRouter()
 
   const submit = async () => {
     const data = await createUser(signUpData.email, signUpData.password)
     if (data.error) {
-      // TODO: error toast (data.error) || show on ui (data.error)
+      setFeedbackMessage({ 
+        text: data.error,
+        status: MessageStatus.ERROR
+      })
     } else {
       const result = await signIn('credentials', {
         redirect: false,
@@ -23,7 +33,10 @@ const SignUpForm = () => {
       })
 
       if (result?.error) {
-        // Account created but something went wrong authenticating. Try logging in!
+        setFeedbackMessage({ 
+          text: 'Account created but something went wrong authenticating. Try logging in!',
+          status: MessageStatus.ERROR
+        })
       } else {
         router.replace('/')
       }
@@ -36,6 +49,12 @@ const SignUpForm = () => {
   return (
     <section>
       <h1 className={classes.authForm__title}>SIGN UP</h1>
+      {feedbackMessage && 
+        <FeedbackMessage 
+          text={feedbackMessage.text} 
+          status={feedbackMessage.status} 
+        />
+      }
       <form className={classes.authForm} onSubmit={handleSubmit} noValidate>
         <div className={classes.authForm__inputContainer}>
           <Input

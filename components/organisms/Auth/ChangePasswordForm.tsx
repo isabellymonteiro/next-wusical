@@ -1,47 +1,74 @@
 import { FormEvent, useRef, useState } from 'react'
 import Input from '@molecules/Input'
 import { changePassword } from '@services/api'
+import FeedbackMessage, {
+  FeedbackMessageProps,
+  MessageStatus,
+} from '@atoms/FeedbackMessage'
 
 import classes from './styles.module.scss'
 
 const ChangePasswordForm = () => {
-  const [passwordError, setPasswordError] = useState<string>()
+  const [feedbackMessage, setFeedbackMessage] = useState<FeedbackMessageProps | null>(null)
 
   const oldPasswordRef = useRef<HTMLInputElement>(null)
   const newPasswordRef = useRef<HTMLInputElement>(null)
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    
+
     const enteredOldPassword = oldPasswordRef?.current?.value
     const enteredNewPassword = newPasswordRef?.current?.value
 
-    // TODO: ui ERROR feedback (in html)
-    if (!enteredOldPassword || enteredOldPassword.trim() === '' || !enteredNewPassword || enteredNewPassword.trim() === '') {
-      setPasswordError('Please, type both passwords.')
+    if (
+      !enteredOldPassword ||
+      enteredOldPassword.trim() === '' ||
+      !enteredNewPassword ||
+      enteredNewPassword.trim() === ''
+    ) {
+      setFeedbackMessage({ 
+        text: 'Please, type both passwords.',
+        status: MessageStatus.ERROR
+      })
       return
-    } else if (enteredNewPassword.length < 8 || !/[0-9]/g.test(enteredNewPassword)) {
-      setPasswordError('Your new password must be at least 8 characters long and contain at least one number.')
+    } else if (
+      enteredNewPassword.length < 8 ||
+      !/[0-9]/g.test(enteredNewPassword)
+    ) {
+      setFeedbackMessage({ 
+        text: 'Your new password must be at least 8 characters long and contain at least one number.',
+        status: MessageStatus.ERROR
+      })
       return
     }
 
     const data = await changePassword({
       oldPassword: enteredOldPassword,
-      newPassword: enteredNewPassword
+      newPassword: enteredNewPassword,
     })
 
     if (data.error) {
-      // TODO: error toast (data.error) || show on ui (data.error)
-      console.log(data.error)
+      setFeedbackMessage({ 
+        text: data.error,
+        status: MessageStatus.ERROR
+      })
     } else {
-      console.log(data.message)
-      // TODO: success toast (data.message)
+      setFeedbackMessage({ 
+        text: data.message,
+        status: MessageStatus.SUCCESS
+      })
     }
   }
 
   return (
     <section>
       <h1 className={classes.authForm__title}>Change Password</h1>
+      {feedbackMessage &&
+        <FeedbackMessage
+          text={feedbackMessage.text}
+          status={feedbackMessage.status}
+        />
+      }
       <form className={classes.authForm} onSubmit={submit} noValidate>
         <div className={classes.authForm__inputContainer}>
           <Input
@@ -54,11 +81,6 @@ const ChangePasswordForm = () => {
             inputError={''}
             showPassword
           />
-          {/* {signUpDataErrors.emailError && (
-            <span className='loginForm__validation'>
-              {signUpDataErrors.emailError}
-            </span>
-          )} */}
         </div>
         <div className={classes.authForm__inputContainer}>
           <Input
@@ -71,11 +93,6 @@ const ChangePasswordForm = () => {
             inputError={''}
             showPassword
           />
-          {/* {signUpDataErrors.passwordError && (
-            <span className='loginForm__validation'>
-              {signUpDataErrors.passwordError}
-            </span>
-          )} */}
         </div>
         <button className={classes.authForm__button} type='submit'>
           Change Password

@@ -1,12 +1,18 @@
-import { FormEvent, useRef } from 'react'
+import { FormEvent, useRef, useState } from 'react'
 import Link from 'next/link'
 import Input from '@molecules/Input'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import FeedbackMessage, {
+  FeedbackMessageProps,
+  MessageStatus,
+} from '@atoms/FeedbackMessage'
 
 import classes from './styles.module.scss'
 
 const LoginForm = () => {
+  const [feedbackMessage, setFeedbackMessage] = useState<FeedbackMessageProps | null>(null)
+
   const emailRef = useRef<HTMLInputElement>(null)
   const passwordRef = useRef<HTMLInputElement>(null)
 
@@ -21,7 +27,10 @@ const LoginForm = () => {
     })
 
     if (result?.error) {
-      // Incorrect username or password
+      setFeedbackMessage({ 
+        text: 'Incorrect username or password',
+        status: MessageStatus.ERROR
+      })
     } else {
       router.replace('/')
     }
@@ -30,6 +39,12 @@ const LoginForm = () => {
   return (
     <section>
       <h1 className={classes.authForm__title}>LOG IN</h1>
+      {feedbackMessage && 
+        <FeedbackMessage 
+          text={feedbackMessage.text} 
+          status={feedbackMessage.status} 
+        />
+      }
       <form className={classes.authForm} onSubmit={submit} noValidate>
         <div className={classes.authForm__inputContainer}>
           <Input
@@ -41,11 +56,6 @@ const LoginForm = () => {
             refProp={emailRef}
             inputError={''}
           />
-          {/* {signUpDataErrors.emailError && (
-            <span className='loginForm__validation'>
-              {signUpDataErrors.emailError}
-            </span>
-          )} */}
         </div>
         <div className={classes.authForm__inputContainer}>
           <Input
@@ -58,11 +68,6 @@ const LoginForm = () => {
             inputError={''}
             showPassword
           />
-          {/* {signUpDataErrors.passwordError && (
-            <span className='loginForm__validation'>
-              {signUpDataErrors.passwordError}
-            </span>
-          )} */}
         </div>
         <button className={classes.authForm__button} type='submit'>
           Log in
