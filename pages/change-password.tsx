@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import { unstable_getServerSession } from 'next-auth/next'
 import { GetServerSideProps } from 'next'
-import { authOptions } from '../api/auth/[...nextauth]'
+import { authOptions } from './api/auth/[...nextauth]'
+import ChangePasswordForm from '@components/organisms/Auth/ChangePasswordForm'
 import Head from 'next/head'
 
 const ChangePassword: NextPage = () => {
@@ -12,7 +13,7 @@ const ChangePassword: NextPage = () => {
         <meta name="description" content="Women in Music" />
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
-      Change Password Page
+      <ChangePasswordForm />
     </div>
   )
 }

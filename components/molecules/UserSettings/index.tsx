@@ -42,9 +42,8 @@ const UserSettings = () => {
           className={classes.userSettings__item}
           onClick={handleDropdownClick}
         >
-          {/* MUDAR /USER PARA SER DINÂMICO */}
-          <Link href={'/user/change-password'}>
-            <a className={`${classes.userSettings__link} ${router.pathname === '/user/change-password' ? classes['userSettings__link--active'] : ''}`}>
+          <Link href={'/change-password'}>
+            <a className={`${classes.userSettings__link} ${router.pathname === '/change-password' ? classes['userSettings__link--active'] : ''}`}>
               Change Password
             </a>
           </Link>
