@@ -38,6 +38,7 @@ const Navbar = () => {
   return (
     <nav className={classes.navbar__container}>
       <button
+        type='button'
         className={classes.mobileNavbar__button}
         onClick={handleMobileMenuClick}
         aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}

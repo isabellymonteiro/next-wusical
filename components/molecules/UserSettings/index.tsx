@@ -28,6 +28,7 @@ const UserSettings = () => {
   return (
     <div className={classes.userSettings}>
       <button
+        type='button'
         className={classes.userSettings__button}
         onClick={handleSettingsMenu}
         aria-haspopup='menu'

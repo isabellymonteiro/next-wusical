@@ -45,7 +45,7 @@ const Input = ({
           ref={refProp}
         />
       {showPassword && 
-        <button onClick={() => setIsShowingPassword((prevState) => !prevState)}>
+        <button type='button' onClick={() => setIsShowingPassword((prevState) => !prevState)}>
           {isShowingPassword ? <Eye /> : <EyeBlocked />}
         </button>
       }

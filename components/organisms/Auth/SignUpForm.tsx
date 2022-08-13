@@ -91,7 +91,7 @@ const SignUpForm = () => {
             </span>
           )}
         </div>
-        <button className={classes.authForm__button} type="submit">
+        <button className={classes.authForm__button} type='submit'>
           Sign Up
         </button>
       </form>
