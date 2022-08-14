@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { useSession } from 'next-auth/react'
 import Navbar from '@molecules/Navbar'
-import FavoritesLink from '@atoms/FavoritesLink'
+import FavoritesLink from '@molecules/FavoritesLink'
 import UserSettings from '@molecules/UserSettings'
 import HeaderDefault from '@molecules/HeaderDefault'
 
