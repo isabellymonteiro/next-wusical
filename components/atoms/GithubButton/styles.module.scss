@@ -1,0 +1,31 @@
+.githubButton {
+  display: grid;
+  grid-template-columns: min-content auto;
+  place-items: center;
+  color: var(--dark-blue);
+  font-family: var(--font-family);
+  font-size: var(--text-base);
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: var(--white);
+  width: 100%;
+  border: 1px solid var(--dark-blue);
+  border-radius: 6px;
+  padding: 8px 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: .2s;
+
+  &__icon {
+    fill: var(--dark-blue);
+  }
+
+  &:hover {
+    color: var(--white);
+    background-color: var(--dark-blue);
+  }
+
+  &:hover &__icon {
+    fill: var(--white);
+  }
+}

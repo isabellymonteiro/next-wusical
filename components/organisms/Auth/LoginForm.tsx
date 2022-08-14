@@ -3,10 +3,12 @@ import Link from 'next/link'
 import Input from '@molecules/Input'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
+import Github from '@atoms/icons/Github'
 import FeedbackMessage, {
   FeedbackMessageProps,
   MessageStatus,
 } from '@atoms/FeedbackMessage'
+import GithubButton from '@atoms/GithubButton'
 
 import classes from './styles.module.scss'
 
@@ -73,12 +75,7 @@ const LoginForm = () => {
           Log in
         </button>
       </form>
-      <button 
-        type='button'
-        onClick={() => signIn('github')}
-      >
-        Log in with Github
-      </button>
+      <GithubButton text='Log in with Github' />
       <p className={classes.authForm__paragraph}>
         Need an account?{' '}
         <Link href='/signup'>
