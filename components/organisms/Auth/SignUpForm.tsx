@@ -95,6 +95,12 @@ const SignUpForm = () => {
           Sign Up
         </button>
       </form>
+      <button 
+        type='button'
+        onClick={() => signIn('github')}
+      >
+        Sign up with Github
+      </button>
       <p className={classes.authForm__paragraph}>
         Already a user?{' '}
         <Link href='/login'>

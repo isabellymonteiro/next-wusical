@@ -1,11 +1,29 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
-import { connectToDatabase } from '@helpers/db'
+import GitHubProvider from 'next-auth/providers/github'
+import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
+import { connectToDatabase, clientPromise } from '@helpers/db'
 import { verifyPassword } from '@helpers/auth'
 
 export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
+  adapter: MongoDBAdapter(clientPromise), // github
+  callbacks: { // github
+    session: ({ session }: any) => ({
+      ...session,
+    })
+  },
   providers: [
+    GitHubProvider({ // github
+      clientId: process.env.GITHUB_ID!,
+      clientSecret: process.env.GITHUB_SECRET!,
+      profile(profile) {
+        return {
+          id: profile.id.toString(),
+          email: profile.email
+        }
+      }
+    }),
     CredentialsProvider({
       credentials: {},
       async authorize(credentials: any) {

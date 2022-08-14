@@ -73,6 +73,12 @@ const LoginForm = () => {
           Log in
         </button>
       </form>
+      <button 
+        type='button'
+        onClick={() => signIn('github')}
+      >
+        Log in with Github
+      </button>
       <p className={classes.authForm__paragraph}>
         Need an account?{' '}
         <Link href='/signup'>
