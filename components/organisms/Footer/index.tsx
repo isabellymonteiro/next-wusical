@@ -2,8 +2,8 @@ import classes from './styles.module.scss'
 
 const Footer = () => {
   return (
-    <footer>
-      <p className={classes.footer}>footer test</p>
+    <footer className={classes.footer}>
+      <p className={classes.paragraph}>footer test</p>
     </footer>
   )
 }

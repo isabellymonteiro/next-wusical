@@ -1,9 +1,63 @@
 .authForm {
   &__container {
+    align-self: center;
     background-color: var(--white);
+    width: 100%;
+    max-width: 400px;
+    border: none;
+    border-radius: 30px 0px;
+    padding: 12px 22px;
+    margin: 20vh 0;
   }
-  
+
   &__title {
+    color: var(--dark-blue);
+    font-size: var(--text-base);
+    font-weight: 800;
+    text-transform: uppercase;
     margin: 0;
+    margin-bottom: 10px;
+  }
+
+  &__inputContainer {
+
+  }
+
+  &__validation {
+
+  }
+
+  &__button {
+    color: var(--light-purple);
+    font-size: var(--text-base);
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: var(--purple);
+    width: 100%;
+    height: 34px;
+    border: none;
+    border-radius: 6px;
+    padding: 6px;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover {
+      color: var(--purple);
+      background-color: var(--light-purple);
+    }
+  }
+
+  &__paragraph {
+    text-align: center;
+    color: var(--dark-blue);
+    font-size: var(--text-small);
+    font-weight: 500;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  &__link, &:link, &:visited {
+    color: var(--purple);
   }
 }

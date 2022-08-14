@@ -9,10 +9,10 @@ type LayoutProps = {
 
 export default function DefaultLayout({ children }: LayoutProps) {
   return (
-    <>
+    <div className={classes.container}>
       <Header />
       <main className={classes.page__content}>{children}</main>
       <Footer />
-    </>
+    </div>
   )
 }

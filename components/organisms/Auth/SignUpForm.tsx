@@ -58,11 +58,11 @@ const SignUpForm = () => {
       <form className={classes.authForm} onSubmit={handleSubmit} noValidate>
         <div className={classes.authForm__inputContainer}>
           <Input
-            labelText="Email"
-            id="email"
-            type="email"
-            placeholder="Enter your email"
-            name="email"
+            labelText='Email'
+            id='email'
+            type='email'
+            placeholder='Enter your email'
+            name='email'
             value={signUpData.email}
             handleOnChange={handleChange}
             inputError={signUpDataErrors.emailError}
@@ -75,11 +75,11 @@ const SignUpForm = () => {
         </div>
         <div className={classes.authForm__inputContainer}>
           <Input
-            labelText="Password"
-            id="password"
-            type="password"
-            placeholder="Enter your password"
-            name="password"
+            labelText='Password'
+            id='password'
+            type='password'
+            placeholder='Enter your password'
+            name='password'
             value={signUpData.password}
             handleOnChange={handleChange}
             inputError={signUpDataErrors.passwordError}
@@ -97,7 +97,7 @@ const SignUpForm = () => {
       </form>
       <p className={classes.authForm__paragraph}>
         Already a user?{' '}
-        <Link href="/login">
+        <Link href='/login'>
           <a className={classes.authForm__link}>SIGN UP</a>
         </Link>
       </p>
