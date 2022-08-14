@@ -86,7 +86,7 @@ const SignUpForm = () => {
             showPassword
           />
           {signUpDataErrors.passwordError && (
-            <span className={classes.signUpForm__validation}>
+            <span className={classes.authForm__validation}>
               {signUpDataErrors.passwordError}
             </span>
           )}

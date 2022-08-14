@@ -19,12 +19,11 @@
     margin-bottom: 10px;
   }
 
-  &__inputContainer {
-
-  }
-
   &__validation {
-
+    display: inline-block;
+    color: var(--red);
+    font-size: var(--text-small);
+    padding: 10px 0;
   }
 
   &__button {
