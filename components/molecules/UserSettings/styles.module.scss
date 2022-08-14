@@ -32,13 +32,18 @@
   }
 
   &__item {
+    width: 100%;
+    text-align: center;
     list-style-type: none;
   }
 
-  &__link {
+  &__link, &__listButton {
     color: var(--dark-blue);
     font-size: var(--text-base);
     font-weight: 600;
+  }
+
+  &__link {
     text-decoration: none;
 
     &:visited, &:link {
@@ -51,6 +56,17 @@
 
     &--active {
       border-bottom: 2px solid var(--purple);
+    }
+  }
+
+  &__listButton {
+    font-family: var(--font-family);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--purple);
     }
   }
 }

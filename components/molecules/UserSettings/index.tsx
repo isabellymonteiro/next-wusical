@@ -49,8 +49,8 @@ const UserSettings = () => {
             </a>
           </Link>
         </li>
-        <li>
-          <button onClick={handleLogOut}>Log out</button>
+        <li className={classes.userSettings__item}>
+          <button className={classes.userSettings__listButton} onClick={handleLogOut}>Log out</button>
         </li>
       </ul>
     </div>
