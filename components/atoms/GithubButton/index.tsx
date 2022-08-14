@@ -1,4 +1,3 @@
-import Github from '@atoms/icons/Github'
 import { signIn } from 'next-auth/react'
 
 import classes from './styles.module.scss'

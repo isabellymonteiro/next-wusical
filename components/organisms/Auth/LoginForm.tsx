@@ -3,7 +3,6 @@ import Link from 'next/link'
 import Input from '@molecules/Input'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import Github from '@atoms/icons/Github'
 import FeedbackMessage, {
   FeedbackMessageProps,
   MessageStatus,
