@@ -27,7 +27,7 @@ const ChangePasswordForm = () => {
       enteredNewPassword.trim() === ''
     ) {
       setFeedbackMessage({ 
-        text: 'Please, type both passwords.',
+        text: 'Please type both passwords.',
         status: MessageStatus.ERROR
       })
       return

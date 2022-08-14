@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import classes from './styles.module.scss'
 
 export enum MessageStatus {
@@ -13,7 +12,7 @@ export type FeedbackMessageProps = {
 
 const FeedbackMessage = ({ text, status }: FeedbackMessageProps) => {
   return (
-    <p className={`${classes.feedbackMessage__text} ${classes[`feedbackMessage__text--${status}`]}`}>
+    <p className={`${classes.feedbackMessage} ${classes[`feedbackMessage--${status}`]}`}>
       {text}
     </p>
   )

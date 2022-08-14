@@ -51,7 +51,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     )
 
     client.close()
-    res.status(200).json({ message: 'Password changed successfully' })
+    res.status(200).json({ message: 'Password changed successfully.' })
   } catch (e) {
     res.status(500).json({ message: 'Something went wrong.' })
   }

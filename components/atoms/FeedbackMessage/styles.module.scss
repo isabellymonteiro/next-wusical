@@ -1,0 +1,17 @@
+.feedbackMessage {
+  color: var(--dark-blue);
+  font-size: var(--text-small);
+  font-weight: 500;
+  border-radius: 6px;
+  padding: 10px;
+  
+  &--error {
+    border: 1px solid var(--red);
+    background-color: rgba(255, 0, 0, 0.2);
+  }
+
+  &--success {
+    border: 1px solid var(--green);
+    background-color: rgba(0, 255, 0, 0.2);
+  }
+}
