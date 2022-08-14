@@ -98,7 +98,7 @@ const SignUpForm = () => {
       <p className={classes.authForm__paragraph}>
         Already a user?{' '}
         <Link href='/login'>
-          <a className={classes.authForm__link}>SIGN UP</a>
+          <a className={classes.authForm__link}>Log in</a>
         </Link>
       </p>
     </section>

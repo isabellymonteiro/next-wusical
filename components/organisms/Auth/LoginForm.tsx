@@ -76,7 +76,7 @@ const LoginForm = () => {
       <p className={classes.authForm__paragraph}>
         Need an account?{' '}
         <Link href='/signup'>
-          <a className={classes.authForm__link}>SIGN UP</a>
+          <a className={classes.authForm__link}>Sign up</a>
         </Link>
       </p>
     </section>
