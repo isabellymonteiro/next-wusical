@@ -2,7 +2,7 @@ import { ChangeEvent, LegacyRef, useState } from 'react'
 import Eye from '@atoms/icons/Eye'
 import EyeBlocked from '@atoms/icons/EyeBlocked'
 
-import './styles.module.scss'
+import classes from './styles.module.scss'
 
 type Props = {
   labelText: string,
@@ -33,9 +33,9 @@ const Input = ({
 
   return (
     <>
-      <label htmlFor={id} className={`input__label'}`}>{labelText}</label>
-      <div className='input__container'>
-        <input className={`input ${inputError ? 'input--error' : ''}`}
+      <label htmlFor={id} className={classes.input__label}>{labelText}</label>
+      <div className={`${classes.input__container} ${inputError ? classes['input__container--error'] : ''}`}>
+        <input className={classes.input}
           id={id} 
           type={isShowingPassword ? 'text' : type}
           placeholder={placeholder} 
@@ -45,7 +45,11 @@ const Input = ({
           ref={refProp}
         />
       {showPassword && 
-        <button type='button' onClick={() => setIsShowingPassword((prevState) => !prevState)}>
+        <button 
+          type='button'
+          className={classes.input__button}
+          onClick={() => setIsShowingPassword((prevState) => !prevState)}
+        >
           {isShowingPassword ? <Eye /> : <EyeBlocked />}
         </button>
       }

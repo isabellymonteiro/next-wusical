@@ -37,7 +37,7 @@ const LoginForm = () => {
   }
 
   return (
-    <section>
+    <section className={classes.authForm__container}>
       <h1 className={classes.authForm__title}>LOG IN</h1>
       {feedbackMessage && 
         <FeedbackMessage 

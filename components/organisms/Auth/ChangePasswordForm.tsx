@@ -61,7 +61,7 @@ const ChangePasswordForm = () => {
   }
 
   return (
-    <section>
+    <section className={classes.authForm__container}>
       <h1 className={classes.authForm__title}>Change Password</h1>
       {feedbackMessage &&
         <FeedbackMessage

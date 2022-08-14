@@ -1,0 +1,44 @@
+.input {
+  color: var(--dark-blue);
+  font-family: var(--font-family);
+  font-size: var(--text-small);
+  width: 100%;
+  border: none;
+  padding: 0;
+  padding-right: 10px;
+
+  &:focus {
+    outline: none; // added below with focus-within pseudo-class
+  }
+
+  &__label {
+    display: inline-block;
+    color: var(--dark-blue);
+    font-size: var(--text-small);
+    font-weight: 600;
+    margin: 10px 0 5px 0;
+  }
+
+  &__container {
+    display: flex;
+    height: 34px;
+    background-color: var(--white);
+    padding: 5px 12px;
+    border: 1px solid var(--light-purple);
+    border-radius: 6px;
+
+    &:focus-within {
+      outline: 1px solid var(--purple);
+    }
+
+    &--error {
+      border: 1px solid var(--red);
+    }
+  }
+
+  &__button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}

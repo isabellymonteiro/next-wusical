@@ -47,7 +47,7 @@ const SignUpForm = () => {
     useSignUp(submit, validateSignUp)
 
   return (
-    <section>
+    <section className={classes.authForm__container}>
       <h1 className={classes.authForm__title}>SIGN UP</h1>
       {feedbackMessage && 
         <FeedbackMessage 
