@@ -2,7 +2,11 @@ import { signIn } from 'next-auth/react'
 
 import classes from './styles.module.scss'
 
-const GithubButton = ({ text }: string) => {
+type ButtonProps = {
+  text: string
+}
+
+const GithubButton = ({ text }: ButtonProps) => {
   return (
     <button 
       type='button'
