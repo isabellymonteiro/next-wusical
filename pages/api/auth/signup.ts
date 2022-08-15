@@ -1,5 +1,5 @@
 import { hashPassword } from '@helpers/auth'
-import { connectToDatabase } from '@helpers/db'
+import { connectToUsersDatabase } from '@helpers/db'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -23,7 +23,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       res.status(422).json({ message: 'Your password must be at least 8 characters long and contain at least one number.' })
     }
 
-    const client = await connectToDatabase()
+    const client = await connectToUsersDatabase()
     const db = client.db()
 
     const existingUser = await db.collection('users').findOne({ email: email })

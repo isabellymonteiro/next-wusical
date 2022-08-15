@@ -1,7 +1,7 @@
 import { unstable_getServerSession } from 'next-auth/next'
 import { authOptions } from '../auth/[...nextauth]'
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { connectToDatabase } from '@helpers/db'
+import { connectToUsersDatabase } from '@helpers/db'
 import { hashPassword, verifyPassword } from '@helpers/auth'
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -23,7 +23,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     const oldPassword = req.body.oldPassword
     const newPassword = req.body.newPassword
 
-    const client = await connectToDatabase()
+    const client = await connectToUsersDatabase()
     const usersCollection = client.db().collection('users')
     const user = await usersCollection.findOne({ email: userEmail })
 

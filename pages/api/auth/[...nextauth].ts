@@ -2,7 +2,7 @@ import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GitHubProvider from 'next-auth/providers/github'
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
-import { connectToDatabase, clientPromise } from '@helpers/db'
+import { connectToUsersDatabase, clientPromise } from '@helpers/db'
 import { verifyPassword } from '@helpers/auth'
 
 export const authOptions = {
@@ -28,7 +28,7 @@ export const authOptions = {
       credentials: {},
       async authorize(credentials: any) {
         try {
-          const client = await connectToDatabase()
+          const client = await connectToUsersDatabase()
 
           const usersCollection = client.db().collection('users')
 
