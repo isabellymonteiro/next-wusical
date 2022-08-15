@@ -34,6 +34,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# wusical details
-wusical-guide.txt
+# wusical
 albums.json

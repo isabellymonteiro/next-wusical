@@ -14,10 +14,6 @@ const Home: NextPage = () => {
       </Head>
       Homepage
       <div>la</div>
-      <div>la</div>
-      <div>la</div>
-      <div>la</div>
-      <div>la</div>
     </div>
   )
 }
