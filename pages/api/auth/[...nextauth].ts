@@ -9,10 +9,17 @@ import { verifyPassword } from '@helpers/auth'
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   adapter: MongoDBAdapter(clientPromise), // github
+  session: {
+    // Set to jwt in order to CredentialsProvider work properly
+    strategy: 'jwt'
+  },
   callbacks: { // github
     session: ({ session }: any) => ({
       ...session,
     })
+  },
+  pages: {
+    signIn: '/login'
   },
   providers: [
     GitHubProvider({ // github
@@ -46,7 +53,6 @@ export const authOptions: NextAuthOptions = {
             client.close()
             throw new Error('Could not log you in.')
           }
-
           client.close()
           return { email: user.email } // will be encoded into json webtoken
         } catch (e) {
