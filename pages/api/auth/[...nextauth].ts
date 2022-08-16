@@ -1,11 +1,12 @@
 import NextAuth from 'next-auth'
+import type { NextAuthOptions } from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import GitHubProvider from 'next-auth/providers/github'
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter"
 import { connectToUsersDatabase, clientPromise } from '@helpers/db'
 import { verifyPassword } from '@helpers/auth'
 
-export const authOptions = {
+export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   adapter: MongoDBAdapter(clientPromise), // github
   callbacks: { // github
