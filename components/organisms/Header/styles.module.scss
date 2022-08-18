@@ -8,22 +8,22 @@
   height: 60px;
   z-index: 10;
 
+  &__defaultContent, &__userContent {
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
   &__defaultContent {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
-    max-width: 1280px;
-    margin: 0 auto;
   }
 
   &__userContent {
     display: grid;
     grid-template-columns: auto 100px 50px;
     align-items: center;
-    width: 90%;
-    max-width: 1280px;
-    margin: 0 auto;
   }
 
   &__logo {

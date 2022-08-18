@@ -2,4 +2,33 @@
   color: var(--dark-blue);
   background-color: var(--white);
   margin-top: auto; // always at the bottom
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  &__paragraph {
+    font-weight: 600;
+  }
+
+  &__wusical {
+    color: var(--purple);
+  }
+  
+  &__link {
+    text-decoration: none;
+    color: var(--purple);
+
+    &:link, &:visited {
+      color: var(--purple);
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
