@@ -1,0 +1,48 @@
+.albumCard {
+  background-color: var(--white);
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 232px;
+  padding: 16px;
+  list-style: none;
+  transition: .2s;
+
+  &:hover {
+    background-color: var(--light-purple);
+  }
+
+  &__link {
+    text-decoration: none;
+    color: var(--dark-blue);
+    width: 100%;
+    max-width: 232px;
+
+    &:link, &:visited {
+      color: var(--dark-blue);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+  }
+
+  &__title, &__artist {
+    font-size: var(--text-base);
+    margin: 0;
+  }
+
+  &__title {
+    font-weight: 700;
+    margin: 10px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  &__artist {
+    font-weight: 500;
+  }
+}

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Album } from '@pages/discover'
 import { createSlug } from '@helpers/slug'
 import classes from './styles.module.scss'
@@ -19,7 +20,15 @@ const AlbumCard = ({
     <li className={classes.albumCard}>
       <Link href={`/discover/${slug}`}>
         <a className={classes.albumCard__link}>
-          {name}
+          <Image 
+            src={image}
+            width={200}
+            height={200}
+            alt={`${name} album cover artwork`}
+            className={classes.albumCard__image}
+          />
+          <h2 className={classes.albumCard__title}>{name}</h2>
+          <p className={classes.albumCard__artist}>{artist}</p>
         </a>
       </Link> 
     </li>

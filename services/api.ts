@@ -53,7 +53,6 @@ export const getAlbums = async () => {
     if (!response.ok) {
       throw new Error(data.message)
     }
-    console.log(data)
  
     return data
  
