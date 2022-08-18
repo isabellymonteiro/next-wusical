@@ -14,11 +14,26 @@ const AlbumCard = ({
   genre,
   spotify,
 }: Album) => {
-  const slug = createSlug(artist, name)
+  const slug = createSlug(artist, name, _id)
 
   return (
     <li className={classes.albumCard}>
-      <Link href={`/discover/${slug}`}>
+      <Link 
+        href={{
+          pathname: `/discover/${slug}`,
+          query: {
+            _id,
+            artist,
+            name,
+            image,
+            releaseYear,
+            language,
+            genre,
+            spotify
+          }
+        }}
+        as={`/discover/${slug}`}
+      >
         <a className={classes.albumCard__link}>
           <Image 
             src={image}
