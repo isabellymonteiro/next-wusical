@@ -1,0 +1,85 @@
+.albumDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--dark-blue);
+  background-color: white;
+  border-radius: 10px;
+  max-width: 800px;
+  padding: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+
+  &__image {
+    width: 100%;
+    border-radius: 10px;
+  }
+
+  &__content {
+    text-align: center;
+  }
+
+  &__title {
+    font-size: var(--text-2xlarge);
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  &__artist {
+    font-size: var(--text-large);
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  &__moreInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-base);
+    font-weight: 500;
+  }
+
+  &__year {
+    margin-bottom: 14px;
+  }
+}
+
+@media (min-width: 700px) {
+  .albumDescription {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    align-items: stretch;
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 20px;
+    }
+
+    &__artist {
+      margin-bottom: 40px;
+    }
+
+    &__moreInfo {
+      margin-top: auto;
+    }
+  }
+}
+
+@media (min-width: 800px) {
+  .albumDescription {
+    &__year {
+      margin-bottom: 0;
+    }
+
+    &__moreInfo {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}

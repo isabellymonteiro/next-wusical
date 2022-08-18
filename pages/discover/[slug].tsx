@@ -15,7 +15,7 @@ const AlbumDetailed: NextPage = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   
   return (
-    <div>
+    <div style={{ maxWidth: '800px' }}>
       <AlbumDescription 
         artist={artist}
         name={name}
@@ -26,7 +26,7 @@ const AlbumDetailed: NextPage = ({
       />
       <iframe
         aria-label={`${name} songs`}
-        style={{ borderRadius: '12px' }}
+        style={{ borderRadius: '10px', maxWidth: '800px' }}
         src={spotify}
         width='100%'
         height='380'
