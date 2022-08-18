@@ -1,5 +1,6 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import { GetStaticProps } from 'next'
+import { server } from '@config/index'
  
 type Album = {
   id: string,
@@ -25,7 +26,7 @@ const Discover: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticPr
 }
  
 export const getStaticProps: GetStaticProps = async () => {
-  const response = await fetch('http://localhost:3000/api/discover/albums')
+  const response = await fetch(`${server}/api/discover/albums`)
   const data: AlbumsData = await response.json()
  
   return {

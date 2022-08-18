@@ -25,7 +25,8 @@
       "@utils/*": ["utils/*"],
       "@helpers/*": ["helpers/*"],
       "@services/*": ["services/*"],
-      "@contexts/*": ["contexts/*"]
+      "@contexts/*": ["contexts/*"],
+      "@config/*": ["config/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "env.d.ts"],
