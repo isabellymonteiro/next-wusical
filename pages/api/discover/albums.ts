@@ -1,3 +1,7 @@
+export {}
+/*
+not being used. Called directly inside getStaticProps instead
+
 import { connectToAlbumsDatabase } from '@helpers/db'
 import type { NextApiRequest, NextApiResponse } from 'next'
  
@@ -19,4 +23,4 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 }
  
-export default handler
+export default handler */
