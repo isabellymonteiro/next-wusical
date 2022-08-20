@@ -21,13 +21,14 @@ export type Album = {
 
 type Props = {
   albums: Album[],
+  onlyFavorites?: boolean
 }
 
 type Favorites = {
   [albumId: string]: boolean
 }
 
-const AlbumList = ({ albums }: Props) => {
+const AlbumList = ({ albums, onlyFavorites }: Props) => {
   const [userFavorites, setUserFavorites] = useState<Favorites>()
   const [error, setError] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(false)
@@ -66,23 +67,37 @@ const AlbumList = ({ albums }: Props) => {
       {userFavorites && (
         <ul className={classes.albumList}>
           {albums.map((album: Album) => {
-            if (userFavorites[album._id]) {
+            if (onlyFavorites) {
+              if (userFavorites[album._id]) {
+                return (
+                  <AlbumCard 
+                    key={album._id}
+                    userEmail={userEmail!}
+                    album={album}
+                    isFavorited
+                  />
+                )
+              }
+            } else {
+              if (userFavorites[album._id]) {
+                return (
+                  <AlbumCard 
+                    key={album._id}
+                    userEmail={userEmail!}
+                    album={album}
+                    isFavorited
+                  />
+                )
+              }
+
               return (
                 <AlbumCard 
                   key={album._id}
                   userEmail={userEmail!}
                   album={album}
-                  isFavorited
                 />
               )
-            } 
-            return (
-              <AlbumCard 
-                key={album._id}
-                userEmail={userEmail!}
-                album={album}
-              />
-            )
+            }
           })}
         </ul>
       )}

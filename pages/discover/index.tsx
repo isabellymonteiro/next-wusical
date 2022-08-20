@@ -1,7 +1,6 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import { GetStaticProps } from 'next'
 import { connectToAlbumsDatabase } from '@helpers/db'
-import { useSession } from 'next-auth/react'
 import AlbumList from '@organisms/AlbumList'
 import PageTitle from '@atoms/PageTitle'
 
