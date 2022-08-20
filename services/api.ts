@@ -49,7 +49,7 @@ export const changePassword = async (passwordData: { oldPassword: string, newPas
 
 export const getAlbums = async () => {
   try {
-    const response = await fetch('api/discover/albums')
+    const response = await fetch('api/albums')
    
     const data = await response.json()
  

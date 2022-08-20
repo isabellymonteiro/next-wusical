@@ -58,7 +58,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const slug = context.query.slug
   const albumId = (slug as string).split('-').pop()
 
-  const response = await fetch(`${server}/api/discover/${albumId}`)
+  const response = await fetch(`${server}/api/albums/${albumId}`)
   const data = await response.json()
   const album = data.album
 
