@@ -14,9 +14,9 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     const db = client.db()
     const id = new ObjectId(albumId as string)
 
-    const album = await db.collection('albums').find({ _id: id }).toArray()
+    const album = await db.collection('albums').findOne({ _id: id })
 
-    res.status(200).json({ album: album[0] })
+    res.status(200).json({ album: album })
     client.close()
   } catch (e) {
     res.status(500).json({ message: 'Something went wrong.' })

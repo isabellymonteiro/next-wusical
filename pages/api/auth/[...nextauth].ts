@@ -28,7 +28,8 @@ export const authOptions: NextAuthOptions = {
       profile(profile) {
         return {
           id: profile.id.toString(),
-          email: profile.email
+          email: profile.email,
+          favorites: {}
         }
       }
     }),

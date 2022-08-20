@@ -1,6 +1,7 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
 import { GetStaticProps } from 'next'
 import { server } from '@config/index'
+import { useSession } from "next-auth/react"
 import AlbumList from '@organisms/AlbumList'
 import PageTitle from '@atoms/PageTitle'
  
@@ -15,15 +16,13 @@ export type Album = {
   spotify: string
 }
 
-export type AlbumData = {
-  albums: Album[]
-}
-
 const Discover: NextPage = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { data: session } = useSession()
+
   return (
     <>
       <PageTitle title='Discover' />
-      <AlbumList albums={data.albums} />
+      <AlbumList albums={data.albums} userEmail={session?.user?.email!} />
     </>
   )
 }

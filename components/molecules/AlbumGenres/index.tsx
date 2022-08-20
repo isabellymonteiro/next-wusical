@@ -5,16 +5,21 @@ type GenreProps = {
 }
 
 const AlbumGenres = ({ genre }: GenreProps) => {
-  const genres = genre.map((item) => {
-    return (
-      <li 
-        key={item} 
-        className={classes.albumGenres__genre}
-      >
-        {item}
+  const genres = (genre.length === 1) ? (
+      <li className={classes.albumGenres__genre}>
+        {genre[0]}
       </li>
-    )
-  })
+    ) : (
+      genre.map((item) => {
+      return (
+        <li 
+          key={item} 
+          className={classes.albumGenres__genre}
+        >
+          {item}
+        </li>
+      )
+  }))
 
   return (
     <ul className={classes.albumGenres__list}>
