@@ -66,7 +66,7 @@ export const getAlbums = async () => {
 
 export const updateFavorite = async (userEmail: string, albumId: string) => {
   try {
-    const response = await fetch('api/discover/favorite', {
+    const response = await fetch('api/favorite', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
