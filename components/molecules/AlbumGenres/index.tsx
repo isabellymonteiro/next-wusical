@@ -5,9 +5,9 @@ type GenreProps = {
 }
 
 const AlbumGenres = ({ genre }: GenreProps) => {
-  const genres = (genre.length === 1) ? (
+  const genres = (typeof genre === 'string') ? (
       <li className={classes.albumGenres__genre}>
-        {genre[0]}
+        {genre}
       </li>
     ) : (
       genre.map((item) => {
