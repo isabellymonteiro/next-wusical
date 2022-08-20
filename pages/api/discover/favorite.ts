@@ -2,7 +2,7 @@ import { connectToUsersDatabase } from '@helpers/db'
 import type { NextApiRequest, NextApiResponse } from 'next'
  
 async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'PUT') {
+  if (req.method !== 'PATCH') {
     return
   }
  

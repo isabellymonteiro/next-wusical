@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import type { Album } from '@pages/discover'
+import type { Album } from '@organisms/AlbumList'
 import { createSlug } from '@helpers/slug'
 import LikeButton from '@atoms/LikeButton'
 
@@ -8,10 +8,11 @@ import classes from './styles.module.scss'
 
 type Props = {
   userEmail: string,
-  album: Album
+  album: Album,
+  isFavorited?: boolean
 }
 
-const AlbumCard = ({ userEmail, album }: Props) => {
+const AlbumCard = ({ userEmail, album, isFavorited }: Props) => {
   const { 
     _id,
     artist,
@@ -51,7 +52,7 @@ const AlbumCard = ({ userEmail, album }: Props) => {
             alt={`${name} album cover artwork`}
             className={classes.albumCard__image}
           />
-          <LikeButton userEmail={userEmail} albumId={_id}/>
+          <LikeButton userEmail={userEmail} albumId={_id} isFavorited={isFavorited} />
           <h2 className={classes.albumCard__title}>{name}</h2>
           <p className={classes.albumCard__artist}>{artist}</p>
         </a>

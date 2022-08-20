@@ -67,7 +67,7 @@ export const getAlbums = async () => {
 export const updateFavorite = async (userEmail: string, albumId: string) => {
   try {
     const response = await fetch('api/discover/favorite', {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
@@ -84,6 +84,23 @@ export const updateFavorite = async (userEmail: string, albumId: string) => {
     }
     
     //return data
+ 
+  } catch (e: any) {
+    return { error: e.message }
+  }
+}
+
+export const getUserData = async (userEmail: string) => {
+  try {
+    const response = await fetch(`api/user/${userEmail}`)
+   
+    const data = await response.json()
+ 
+    if (!response.ok) {
+      throw new Error(data.message)
+    }
+    
+    return data.user
  
   } catch (e: any) {
     return { error: e.message }

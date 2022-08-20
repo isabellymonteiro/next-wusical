@@ -5,11 +5,12 @@ import classes from './styles.module.scss'
 
 type Props = {
   userEmail: string,
-  albumId: string
+  albumId: string,
+  isFavorited?: boolean
 }
 
-const LikeButton = ({ userEmail, albumId }: Props) => {
-  const [liked, setLiked] = useState(false)
+const LikeButton = ({ userEmail, albumId, isFavorited }: Props) => {
+  const [liked, setLiked] = useState(isFavorited)
 
   const handleLikeButton = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()

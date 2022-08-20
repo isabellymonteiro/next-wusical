@@ -4,4 +4,10 @@
   place-items: center;
   gap: 30px;
   padding: 10px 0 40px 0;
+
+  &__loading {
+    display: grid;
+    place-items: center;
+    min-height: 40vh;
+  }
 }
