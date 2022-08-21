@@ -9,8 +9,6 @@ const Home: NextPage = () => {
         <meta name="description" content="Women in Music" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      Homepage
-      <div>la</div>
     </div>
   )
 }

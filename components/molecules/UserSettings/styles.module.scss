@@ -14,10 +14,12 @@
 
   &__dropdown {
     display: none;
-    position: fixed;
+    position: absolute;
     background-color: var(--white);
     top: 56px;
-    right: 5%;
+    right: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     min-width: 200px;
     margin: 0;
     z-index: 10;

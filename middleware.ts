@@ -27,4 +27,4 @@ export const config = {
     '/favorites',
     '/change-password'
   ],
-} // just for testing, afterwards add routes that need authentication
+}
