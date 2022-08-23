@@ -107,4 +107,28 @@ export const getUserData = async (userEmail: string) => {
   }
 }
 
-
+export const sendMessage = async (userEmail: string, message: string) => {
+  try {
+    const response = await fetch(`api/suggestion`, {
+      method: 'POST',
+      body: JSON.stringify({
+        userEmail,
+        message
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+   
+    const data = await response.json()
+ 
+    if (!response.ok) {
+      throw new Error(data.message)
+    }
+    
+    return data
+ 
+  } catch (e: any) {
+    return { error: e.message }
+  }
+}

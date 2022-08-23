@@ -5,7 +5,7 @@ import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import FeedbackMessage, {
   FeedbackMessageProps,
-  MessageStatus,
+  MessageStatus
 } from '@atoms/FeedbackMessage'
 import GithubButton from '@atoms/GithubButton'
 
