@@ -4,9 +4,8 @@ import SuggestMessage from '@organisms/SuggestMessage'
 
 const Suggestions: NextPage = () => {
   return (
-    <div>
+    <div style={{ maxWidth: '600px' }}>
       <PageTitle title='Suggest' />
-      <p>Suggest questions, artists, albums or any new feature you would like to see on this app.</p>
       <SuggestMessage />
     </div>
   )
