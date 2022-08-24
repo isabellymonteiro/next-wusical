@@ -5,6 +5,7 @@ import FeedbackMessage, {
   FeedbackMessageProps,
 } from '@atoms/FeedbackMessage'
 import { sendMessage } from '@services/api'
+import DefaultButton from '@atoms/DefaultButton'
 
 import classes from './styles.module.scss'
 
@@ -71,13 +72,11 @@ const SuggestMessage = () => {
           status={feedbackMessage.status}
         />
       )}
-      <button
-        className={classes.suggestMessage__button}
+      <DefaultButton
+        text='Send Message'
         type='button'
-        onClick={sendMessageHandler}
-      >
-        Send Message
-      </button>
+        handleOnClick={sendMessageHandler}
+      />
     </div>
   )
 }

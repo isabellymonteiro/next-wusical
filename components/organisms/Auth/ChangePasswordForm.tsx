@@ -5,6 +5,7 @@ import FeedbackMessage, {
   FeedbackMessageProps,
   MessageStatus,
 } from '@atoms/FeedbackMessage'
+import DefaultButton from '@atoms/DefaultButton'
 
 import classes from './styles.module.scss'
 
@@ -94,9 +95,7 @@ const ChangePasswordForm = () => {
             showPassword
           />
         </div>
-        <button className={classes.authForm__button} type='submit'>
-          Change Password
-        </button>
+        <DefaultButton text='Change Password' type='submit' />
       </form>
     </section>
   )

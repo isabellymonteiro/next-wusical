@@ -11,6 +11,7 @@ import FeedbackMessage, {
   MessageStatus,
 } from '@atoms/FeedbackMessage'
 import GithubButton from '@atoms/GithubButton'
+import DefaultButton from '@atoms/DefaultButton'
 
 import classes from './styles.module.scss'
 
@@ -92,9 +93,7 @@ const SignUpForm = () => {
             </span>
           )}
         </div>
-        <button className={classes.authForm__button} type='submit'>
-          Sign Up
-        </button>
+        <DefaultButton text='Sign up' type='submit' />
       </form>
       <GithubButton text='Sign up with Github' />
       <p className={classes.authForm__paragraph}>

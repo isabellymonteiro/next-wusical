@@ -41,25 +41,4 @@
       border-color: var(--red);
     }
   }
-
-  &__button {
-    color: var(--light-purple);
-    font-family: var(--font-family);
-    font-size: var(--text-base);
-    font-weight: 700;
-    text-transform: uppercase;
-    justify-self: right;
-    background-color: var(--purple);
-    border: none;
-    border-radius: 6px;
-    padding: 10px 12px;
-    margin-top: 20px;
-    cursor: pointer;
-    transition: .2s;
-
-    &:hover {
-      color: var(--purple);
-      background-color: var(--light-purple);
-    }
-  }
 }
