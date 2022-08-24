@@ -1,5 +1,4 @@
 import { useState, useRef } from 'react'
-import { useSession } from 'next-auth/react'
 import FeedbackMessage, {
   MessageStatus,
   FeedbackMessageProps,
@@ -10,8 +9,6 @@ import DefaultButton from '@atoms/DefaultButton'
 import classes from './styles.module.scss'
 
 const SuggestMessage = () => {
-  const { data: session } = useSession()
-
   const messageRef = useRef<HTMLTextAreaElement>(null)
   const [feedbackMessage, setFeedbackMessage] =
     useState<FeedbackMessageProps | null>(null)
@@ -23,10 +20,7 @@ const SuggestMessage = () => {
         status: MessageStatus.ERROR,
       })
     } else {
-      const data = await sendMessage(
-        session?.user?.email!,
-        messageRef?.current?.value!
-      )
+      const data = await sendMessage(messageRef?.current?.value!)
       if (data.error) {
         setFeedbackMessage({
           text: data.error,

@@ -1,4 +1,6 @@
 import { connectToUsersDatabase } from '@helpers/db'
+import { unstable_getServerSession } from 'next-auth/next'
+import { authOptions } from './auth/[...nextauth]'
 import type { NextApiRequest, NextApiResponse } from 'next'
  
 async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -7,7 +9,15 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   }
  
   try {
-    const { userEmail, message } = req.body
+    const session = await unstable_getServerSession(req, res, authOptions)
+
+    if (!session) {
+      res.status(401).json({ message: 'You must be logged in.' })
+      return
+    }
+
+    const userEmail = session?.user?.email
+    const { message } = req.body
 
     if (!message || message.trim().length < 20) {
       res.status(422).json({ message: 'Your message should be at least 20 characters long.' })
@@ -21,7 +31,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       userEmail: userEmail,
       message: message
     })
-    console.log(result)
    
     res.status(201).send({ message: 'Message sent successfully. Thanks!' })
     client.close()

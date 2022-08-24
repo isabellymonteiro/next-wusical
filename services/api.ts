@@ -107,14 +107,11 @@ export const getUserData = async (userEmail: string) => {
   }
 }
 
-export const sendMessage = async (userEmail: string, message: string) => {
+export const sendMessage = async (message: string) => {
   try {
     const response = await fetch(`api/suggestion`, {
       method: 'POST',
-      body: JSON.stringify({
-        userEmail,
-        message
-      }),
+      body: JSON.stringify({ message }),
       headers: {
         'Content-Type': 'application/json'
       }
