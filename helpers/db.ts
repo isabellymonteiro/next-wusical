@@ -10,5 +10,10 @@ export async function connectToAlbumsDatabase() {
   return client
 }
 
+export async function connectToQuestionsDatabase() {
+  const client = await MongoClient.connect(process.env.QUESTIONS_DB_URL)
+  return client
+}
+
 // github auth
 export const clientPromise = MongoClient.connect(process.env.USERS_DB_URL)
