@@ -1,9 +1,9 @@
 import type { NextPage,InferGetServerSidePropsType } from 'next'
 import { GetServerSideProps } from 'next'
-import Test from '@organisms/Test'
 import { shuffleArray } from '@utils/shuffleArray'
+import QuizWrapper from '@organisms/QuizWrapper'
 
-type Question = {
+type AllQuestionData = {
   translations: { en: {
     description: string,
     hint: string
@@ -15,19 +15,19 @@ type Question = {
   hint: string
 }
 
+export const TOTAL_QUESTIONS = 5
+
 const Quiz: NextPage = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  
-  console.log(JSON.parse(data))
   return (
     <div>
-      Quiz Page
+      <QuizWrapper questions={data} />
     </div>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
   
-  const response = await fetch('https://wusical-questions-api.herokuapp.com/questions/amount/5')
+  const response = await fetch(`https://wusical-questions-api.herokuapp.com/questions/amount/${TOTAL_QUESTIONS}`)
   
   const data = await response.json()
 
@@ -35,16 +35,18 @@ export const getServerSideProps: GetServerSideProps = async () => {
     throw new Error(data.message)
   }
 
-  const transformedData = data.map((question: Question) => {
+  const transformedData = data.map((question: AllQuestionData) => {
+    const answers = shuffleArray([
+      ...question.incorrect_answers,
+      question.correct_answer
+    ])
+
     return (
       {
         id: question._id,
         description: question.translations.en.description,
         hint: question.translations.en.hint,
-        answers: shuffleArray([
-          ...question.incorrect_answers,
-          question.correct_answer
-        ]),
+        answers: answers,
         correct_answer: question.correct_answer
       }
     )
@@ -52,7 +54,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
   return {
     props: {
-      data: JSON.stringify(transformedData)
+      data: JSON.parse(JSON.stringify(transformedData))
     }
   }
 }
