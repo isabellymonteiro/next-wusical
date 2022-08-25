@@ -2,9 +2,9 @@ import type { InferGetServerSidePropsType, NextPage } from 'next'
 import { GetServerSideProps } from 'next'
 import { connectToAlbumsDatabase } from '@helpers/db'
 import { ObjectId } from 'mongodb'
-import AlbumDescription from '@organisms/AlbumDescription'
+import AlbumDetailed from '@organisms/AlbumDetailed'
 
-const AlbumDetailed: NextPage = ({ 
+const Album: NextPage = ({ 
   id,
   artist,
   name,
@@ -16,8 +16,8 @@ const AlbumDetailed: NextPage = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   
   return (
-    <div style={{ maxWidth: '800px' }}>
-      <AlbumDescription 
+    <div style={{ maxWidth: '800px', marginBottom: '40px' }}>
+      <AlbumDetailed 
         artist={artist}
         name={name}
         image={image}
@@ -81,4 +81,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   } 
 }
 
-export default AlbumDetailed
+export default Album

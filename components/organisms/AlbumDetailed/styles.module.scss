@@ -1,4 +1,4 @@
-.albumDescription {
+.albumDetailed {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,7 +49,7 @@
 }
 
 @media (min-width: 700px) {
-  .albumDescription {
+  .albumDetailed {
     display: grid;
     grid-template-columns: 300px 1fr;
     align-items: stretch;
@@ -72,7 +72,7 @@
 }
 
 @media (min-width: 800px) {
-  .albumDescription {
+  .albumDetailed {
     &__year {
       margin-bottom: 0;
     }
