@@ -1,6 +1,7 @@
 import type { InferGetServerSidePropsType, NextPage } from 'next'
 import { GetServerSideProps } from 'next'
-import { server } from '@config/index'
+import { connectToAlbumsDatabase } from '@helpers/db'
+import { ObjectId } from 'mongodb'
 import AlbumDescription from '@organisms/AlbumDescription'
 
 const AlbumDetailed: NextPage = ({ 
@@ -58,9 +59,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const slug = context.query.slug
   const albumId = (slug as string).split('-').pop()
 
-  const response = await fetch(`${server}/api/albums/${albumId}`)
-  const data = await response.json()
-  const album = data.album
+  const client = await connectToAlbumsDatabase()
+  const db = client.db()
+  const id = new ObjectId(albumId!)
+
+  const response = await db.collection('albums').findOne({ _id: id })
+  const album = JSON.parse(JSON.stringify(response))
+  client.close()
 
    return {
       props: {
