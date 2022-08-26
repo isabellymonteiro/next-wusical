@@ -10,4 +10,13 @@
     place-items: center;
     min-height: 40vh;
   }
+
+  &--empty {
+    display: grid;
+    place-items: center;
+    font-size: var(--text-4xlarge);
+    font-weight: 500;
+    color: var(--white);
+    min-height: 40vh;
+  }
 }

@@ -64,42 +64,47 @@ const AlbumList = ({ albums, onlyFavorites }: Props) => {
       {loading && !error &&
         <div className={classes.albumList__loading}><LoadingSpinner /></div>
       }
-      {userFavorites && (
-        <ul className={classes.albumList}>
-          {albums.map((album: Album) => {
-            if (onlyFavorites) {
-              if (userFavorites[album._id]) {
-                return (
-                  <AlbumCard 
-                    key={album._id}
-                    userEmail={userEmail!}
-                    album={album}
-                    isFavorited
-                  />
-                )
-              }
-            } else {
-              if (userFavorites[album._id]) {
-                return (
-                  <AlbumCard 
-                    key={album._id}
-                    userEmail={userEmail!}
-                    album={album}
-                    isFavorited
-                  />
-                )
-              }
+      {userFavorites && !loading && (
+        <>
+          {onlyFavorites && Object.keys(userFavorites).length === 0 ? 
+            <p className={classes['albumList--empty']}>You haven't liked anything yet.</p> : (
+            <ul className={classes.albumList}>
+              {albums.map((album: Album) => {
+                if (onlyFavorites) {
+                  if (userFavorites[album._id]) {
+                    return (
+                      <AlbumCard 
+                        key={album._id}
+                        userEmail={userEmail!}
+                        album={album}
+                        isFavorited
+                      />
+                    )
+                  }
+                } else {
+                  if (userFavorites[album._id]) {
+                    return (
+                      <AlbumCard 
+                        key={album._id}
+                        userEmail={userEmail!}
+                        album={album}
+                        isFavorited
+                      />
+                    )
+                  }
 
-              return (
-                <AlbumCard 
-                  key={album._id}
-                  userEmail={userEmail!}
-                  album={album}
-                />
-              )
-            }
-          })}
-        </ul>
+                  return (
+                    <AlbumCard 
+                      key={album._id}
+                      userEmail={userEmail!}
+                      album={album}
+                    />
+                  )
+                }
+              })}
+            </ul>
+          )}
+        </>
       )}
     </>
   )
