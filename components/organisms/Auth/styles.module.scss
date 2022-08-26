@@ -19,6 +19,14 @@
     margin-bottom: 10px;
   }
 
+  &__warning {
+    color: var(--dark-blue);
+    font-size: var(--text-small);
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
   &__validation {
     display: inline-block;
     color: var(--red);
