@@ -93,7 +93,7 @@ const SignUpForm = () => {
             </span>
           )}
         </div>
-        <DefaultButton text='Sign up' type='submit' />
+        <DefaultButton text='Sign up' type='submit' fullWidth />
       </form>
       <GithubButton text='Sign up with Github' />
       <p className={classes.authForm__paragraph}>

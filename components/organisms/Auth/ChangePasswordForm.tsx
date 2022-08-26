@@ -95,7 +95,7 @@ const ChangePasswordForm = () => {
             showPassword
           />
         </div>
-        <DefaultButton text='Change Password' type='submit' />
+        <DefaultButton text='Change Password' type='submit' fullWidth />
       </form>
     </section>
   )

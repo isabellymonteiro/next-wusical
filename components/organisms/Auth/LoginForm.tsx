@@ -71,7 +71,7 @@ const LoginForm = () => {
             showPassword
           />
         </div>
-        <DefaultButton text='Log in' type='submit' />
+        <DefaultButton text='Log in' type='submit' fullWidth />
       </form>
       <GithubButton text='Log in with Github' />
       <p className={classes.authForm__paragraph}>

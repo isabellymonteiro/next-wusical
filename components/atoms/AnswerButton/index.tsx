@@ -2,15 +2,15 @@ import classes from './styles.module.scss'
 
 type Props = {
   answer: string,
-  correct: boolean,
+  isCorrect: boolean,
   clicked: boolean,
   disabled: boolean,
-  handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void,
+  handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
 const AnswerButton = ({
   answer,
-  correct,
+  isCorrect,
   clicked,
   disabled,
   handleClick

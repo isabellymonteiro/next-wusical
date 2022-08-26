@@ -32,7 +32,7 @@ const QuestionCard = ({
       <li key={answer}>
         <AnswerButton
           answer={answer}
-          correct={userAnswer?.correctAnswer === answer}
+          isCorrect={userAnswer?.correctAnswer === answer}
           clicked={userAnswer?.answer === answer}
           disabled={!!userAnswer}
           handleClick={() => callback(answer)}

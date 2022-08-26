@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import QuestionCard from '@molecules/QuestionCard'
 import Error from '@molecules/Error'
 import LoadingSpinner from '@atoms/icons/LoadingSpinner'
@@ -10,9 +10,7 @@ import classes from './styles.module.scss'
 const TOTAL_QUESTIONS = 5
 
 export type Answer = {
-  question: string
   answer: string
-  correct: boolean
   correctAnswer: string
 }
 
@@ -34,10 +32,6 @@ const QuizWrapper = () => {
   const [gameOver, setGameOver] = useState<boolean>(true)
   const [showFinalScore, setShowFinalScore] = useState<boolean>(false)
 
-  useEffect(() => {
-    fetchQuestions()
-  }, [])
-
   const fetchQuestions = async () => {
     setLoading(true)
     const data = await getQuestions(TOTAL_QUESTIONS)
@@ -50,6 +44,7 @@ const QuizWrapper = () => {
   }
 
   const startTrivia = async() => {
+    fetchQuestions()
     setGameOver(false)
     setScore(0)
     setUserAnswers([])
@@ -58,13 +53,12 @@ const QuizWrapper = () => {
 
   const checkAnswer = (answer: string) => {
     if (!gameOver) {
-      const correct = questions[questionNumber].correct_answer === answer
-      if (correct) setScore(prev => prev + 1)
+      const isCorrect = questions[questionNumber].correct_answer === answer
+
+      if (isCorrect) setScore(prev => prev + 1)
 
       const answerObject = {
-        question: questions[questionNumber].description,
         answer,
-        correct,
         correctAnswer: questions[questionNumber].correct_answer
       }
       setUserAnswers(prev => [...prev, answerObject])
@@ -83,7 +77,6 @@ const QuizWrapper = () => {
 
   const playAgain = () => {
     setShowFinalScore(false)
-    fetchQuestions()
   }
 
   return (
@@ -98,9 +91,8 @@ const QuizWrapper = () => {
             </div>
           }
           {!loading && gameOver && !showFinalScore &&
-            <DefaultButton text='Start trivia' type='button' handleOnClick={startTrivia} />
+            <DefaultButton text='Start quiz' type='button' handleOnClick={startTrivia} />
           }
-          {!gameOver && !loading && <p className='score'>SCORE: {score}</p>}
           {!loading && !gameOver &&
             <QuestionCard
               question={questions[questionNumber]}
