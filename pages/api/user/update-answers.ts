@@ -19,8 +19,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     const userEmail = session?.user?.email
     const { correctAnswers, totalAnswers } = req.body
 
-    const correctAnswersNumber = parseInt(correctAnswers as string)
-    const totalAnswersNumber = parseInt(totalAnswers as string)
+    const correctAnswersNumber = parseInt(correctAnswers)
+    const totalAnswersNumber = parseInt(totalAnswers)
     
     const client = await connectToUsersDatabase()
     const db = client.db()

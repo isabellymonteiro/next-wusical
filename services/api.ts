@@ -96,9 +96,6 @@ export const updateFavorite = async (userEmail: string, albumId: string) => {
     if (!response.ok) {
       throw new Error(data.message)
     }
-    
-    //return data
- 
   } catch (e: any) {
     return { error: e.message }
   }
@@ -173,6 +170,29 @@ export const getQuestions = async (total: number) => {
 
     return transformedData
     
+  } catch (e: any) {
+    return { error: e.message }
+  }
+}
+
+export const updateUserAnswers = async (correctAnswers: number, totalAnswers: number) => {
+  try {
+    const response = await fetch('api/user/update-answers', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        correctAnswers: correctAnswers,
+        totalAnswers: totalAnswers
+      })
+    })
+   
+    const data = await response.json()
+ 
+    if (!response.ok) {
+      throw new Error(data.message)
+    } 
   } catch (e: any) {
     return { error: e.message }
   }

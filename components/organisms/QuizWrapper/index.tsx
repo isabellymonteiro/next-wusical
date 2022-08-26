@@ -3,7 +3,7 @@ import QuestionCard from '@molecules/QuestionCard'
 import Error from '@molecules/Error'
 import LoadingSpinner from '@atoms/icons/LoadingSpinner'
 import DefaultButton from '@atoms/DefaultButton'
-import { getQuestions } from '@services/api'
+import { getQuestions, updateUserAnswers } from '@services/api'
 
 import classes from './styles.module.scss'
 
@@ -65,9 +65,10 @@ const QuizWrapper = () => {
     }
   }
 
-  const nextQuestion = () => {
+  const nextQuestion = async () => {
     const nextQuestion = questionNumber + 1
     if (nextQuestion === TOTAL_QUESTIONS) {
+      await updateUserAnswers(score, TOTAL_QUESTIONS)
       setGameOver(true)
       setShowFinalScore(true)
     } else {

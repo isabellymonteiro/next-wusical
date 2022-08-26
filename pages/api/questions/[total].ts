@@ -1,5 +1,4 @@
 import { connectToQuestionsDatabase } from '@helpers/db'
-import { Console } from 'console'
 import type { NextApiRequest, NextApiResponse } from 'next'
  
 async function handler(req: NextApiRequest, res: NextApiResponse) {
