@@ -41,6 +41,12 @@ const SuggestMessage = () => {
         Suggest questions, artists, albums or any new feature you would like to
         see on this app.
       </p>
+      {feedbackMessage && (
+        <FeedbackMessage
+          text={feedbackMessage.text}
+          status={feedbackMessage.status}
+        />
+      )}
       <div className={classes.suggestMessage}>
         <label
           className={classes.suggestMessage__label}
@@ -60,12 +66,6 @@ const SuggestMessage = () => {
           ref={messageRef}
         ></textarea>
       </div>
-      {feedbackMessage && (
-        <FeedbackMessage
-          text={feedbackMessage.text}
-          status={feedbackMessage.status}
-        />
-      )}
       <DefaultButton
         text='Send Message'
         type='button'
