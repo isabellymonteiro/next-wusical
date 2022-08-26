@@ -29,7 +29,9 @@ export const authOptions: NextAuthOptions = {
         return {
           id: profile.id.toString(),
           email: profile.email,
-          favorites: {}
+          favorites: {},
+          correctAnswers: 0,
+          totalAnswers: 0
         }
       }
     }),

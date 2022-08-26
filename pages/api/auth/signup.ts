@@ -39,7 +39,9 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     const result = await db.collection('users').insertOne({
       email: email,
       password: hashedPassword,
-      favorites: {}
+      favorites: {},
+      correctAnswers: 0,
+      totalAnswers: 0
     })
 
     res.status(201).json({ message: 'User created successfully'})

@@ -80,7 +80,7 @@ export const getAlbums = async () => {
 
 export const updateFavorite = async (userEmail: string, albumId: string) => {
   try {
-    const response = await fetch('api/favorite', {
+    const response = await fetch('api/user/favorite', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
