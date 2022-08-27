@@ -1,0 +1,38 @@
+.quizWrapper {
+  display: grid;
+  place-items: center;
+  background-color: var(--white);
+  border: 5px solid var(--purple);
+  border-radius: 40px;
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  margin: 10% auto;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 60px 40px -7px;
+    
+  &__title {
+    color: var(--purple);
+    font-size: var(--text-3xlarge);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    transition: .2s;
+
+    &:hover {
+      color: var(--light-purple);
+    }
+  }
+
+  &__loading {
+    margin-top: 20px;
+  }
+
+  &__finalScore {
+    color: var(--dark-blue);
+    font-size: var(--text-xlarge);
+    font-weight: 700;
+    white-space: pre-wrap;
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+}

@@ -17,7 +17,15 @@ const AnswerButton = ({
 }: Props) => {
 
   return (
-    <button disabled={disabled} onClick={handleClick}>
+    <button
+      className={`
+        ${classes.answerButton}
+        ${isCorrect ? classes['answerButton--correct'] : 
+        (!isCorrect && clicked ? classes['answerButton--incorrect'] : '') }
+      `}
+      disabled={disabled} 
+      onClick={handleClick}
+    >
       {answer}
     </button>
   )

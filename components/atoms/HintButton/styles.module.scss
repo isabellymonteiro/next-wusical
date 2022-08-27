@@ -1,0 +1,12 @@
+.hintButton {
+  background-color: var(--light-purple);
+  border: none;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  transition: .2s;
+
+  &:hover {
+    background-color: var(--purple);
+  }
+}

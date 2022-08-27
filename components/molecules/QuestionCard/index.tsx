@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react'
 import type { Answer } from '@organisms/QuizWrapper'
 import AnswerButton from '@atoms/AnswerButton'
+import HintButton from '@atoms/HintButton'
 
 import classes from './styles.module.scss'
 
@@ -26,10 +28,19 @@ const QuestionCard = ({
   questionNumber,
   totalQuestions
 }: Props) => {
+  const [showHint, setShowHint] = useState<boolean>(false)
+
+  const toggleHint = () => {
+    setShowHint(prev => !prev)
+  }
+
+  useEffect(() => {
+    if (showHint) setShowHint(false)
+  }, [question])
 
   const options = question.answers.map((answer) => {
     return (
-      <li key={answer}>
+      <li className={classes.questionCard__option} key={answer}>
         <AnswerButton
           answer={answer}
           isCorrect={userAnswer?.correctAnswer === answer}
@@ -41,10 +52,14 @@ const QuestionCard = ({
     )
   })
   return (
-    <li className={classes.albumCard}>
-      <p>Question: {questionNumber} / {totalQuestions}</p>
-      <p>{question.description}</p> 
-      <ul>
+    <li className={classes.questionCard}>
+      <p className={classes.questionCard__number}>Question: {questionNumber} / {totalQuestions}</p>
+      <p className={classes.questionCard__description}>{question.description}</p>
+      <div className={classes.questionCard__hint}>
+        {showHint && <p className={classes.questionCard__hintText}>{question.hint}</p>}
+        <HintButton showHint={showHint} handleOnClick={toggleHint} />
+      </div>
+      <ul className={classes.questionCard__optionList}>
         {options}
       </ul>
     </li>

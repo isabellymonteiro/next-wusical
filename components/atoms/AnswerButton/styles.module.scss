@@ -1,0 +1,29 @@
+.answerButton {
+  color: var(--dark-blue);
+  font-family: var(--font-family);
+  font-size: var(--text-base);
+  font-weight: 600;
+  background-color: var(--lighter-blue);
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: .2s;
+
+  &:hover:enabled {
+    background-color: var(--light-purple);
+  }
+
+  &:disabled {
+    opacity: .8;
+  }
+
+  &--correct {
+    background-color: var(--light-green);
+  }
+
+  &--incorrect {
+    background-color: var(--light-red);
+  }
+}

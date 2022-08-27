@@ -83,16 +83,17 @@ const QuizWrapper = () => {
   return (
     <>
       {error ? <Error /> :
-        <div>
-          {loading && <LoadingSpinner />}
+        <div className={classes.quizWrapper}>
+          <h1 className={classes.quizWrapper__title}>Women in Music Quiz</h1>
+          {loading && <div className={classes.quizWrapper__loading}><LoadingSpinner /></div>}
           {showFinalScore &&
-            <div>
-              <p className='finalScore'>FINAL SCORE: {score} / {TOTAL_QUESTIONS}</p>
+            <>
+              <p className={classes.quizWrapper__finalScore}>Final score:{'  '}{score} / {TOTAL_QUESTIONS}</p>
               <DefaultButton text='Play again' type='button' handleOnClick={playAgain} />
-            </div>
+            </>
           }
           {!loading && gameOver && !showFinalScore &&
-            <DefaultButton text='Start quiz' type='button' handleOnClick={startTrivia} />
+            <DefaultButton text='Start' type='button' handleOnClick={startTrivia} />
           }
           {!loading && !gameOver &&
             <QuestionCard

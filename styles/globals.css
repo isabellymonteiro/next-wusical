@@ -17,11 +17,15 @@ body {
   /* colors */
   --light-purple: #D1D4FF;
   --purple: #6937B9;
+  --lighter-blue: #CFE5FA;
   --light-blue: #A9D5F2;
   --dark-blue: #003B64;
   --white: #FFF;
   --black: #000;
+  --light-yellow: #FFF0B7;
+  --light-red: #FC727B;
   --red: #CF222E;
+  --light-green: #86F0A4;
   --green: #4ECB71;
 
   /* typography */
