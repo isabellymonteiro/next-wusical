@@ -49,14 +49,3 @@ body {
   --text-10xlarge: 2.375rem; /* 38px */
   --text-11xlarge: 2.5rem; /* 40px */
 }
-
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-}
- */

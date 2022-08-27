@@ -10,7 +10,7 @@ export const middleware = async (req: NextRequest) => {
   })
 
   if (!session) {
-    const loginUrl = new URL('/login', req.nextUrl)
+    const loginUrl = new URL('/', req.nextUrl)
     return NextResponse.redirect(loginUrl)
   }
 
@@ -19,7 +19,7 @@ export const middleware = async (req: NextRequest) => {
 
 export const config = {
   matcher: [
-    '/',
+    '/dashboard',
     '/discover',
     '/discover/:slug',
     '/quiz',

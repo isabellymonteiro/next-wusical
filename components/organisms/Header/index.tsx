@@ -1,16 +1,13 @@
 import Link from 'next/link'
-import { useState } from 'react'
 import { useSession } from 'next-auth/react'
 import Navbar from '@molecules/Navbar'
 import FavoritesLink from '@molecules/FavoritesLink'
 import UserSettings from '@molecules/UserSettings'
-import HeaderDefault from '@molecules/HeaderDefault'
 
 import classes from './styles.module.scss'
 
 const Header = () => {
-  const { data: session, status } = useSession()
-  const loading = status === "loading"
+  const { data: session } = useSession()
   
   return (
     <header className={classes.header}>
@@ -27,7 +24,6 @@ const Header = () => {
             </div>
           </>
         }
-        {!session && !loading && <HeaderDefault />}
       </div>
     </header>
   )

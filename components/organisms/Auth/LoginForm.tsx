@@ -9,10 +9,11 @@ import FeedbackMessage, {
 } from '@atoms/FeedbackMessage'
 import GithubButton from '@atoms/GithubButton'
 import DefaultButton from '@atoms/DefaultButton'
+import type { AuthProps } from './SignUpForm'
 
 import classes from './styles.module.scss'
 
-const LoginForm = () => {
+const LoginForm = ({ toggleAuth }: AuthProps) => {
   const [feedbackMessage, setFeedbackMessage] = useState<FeedbackMessageProps | null>(null)
 
   const emailRef = useRef<HTMLInputElement>(null)
@@ -40,7 +41,7 @@ const LoginForm = () => {
 
   return (
     <section className={classes.authForm__container}>
-      <h1 className={classes.authForm__title}>LOG IN</h1>
+      <h2 className={classes.authForm__title}>LOG IN</h2>
       {feedbackMessage && 
         <FeedbackMessage 
           text={feedbackMessage.text} 
@@ -76,9 +77,13 @@ const LoginForm = () => {
       <GithubButton text='Log in with Github' />
       <p className={classes.authForm__paragraph}>
         Need an account?{' '}
-        <Link href='/signup'>
-          <a className={classes.authForm__link}>Sign up</a>
-        </Link>
+        <button 
+          type='button'
+          className={classes.authForm__toggleAuth}
+          onClick={toggleAuth}
+        >
+          Sign up
+        </button>
       </p>
     </section>
   )

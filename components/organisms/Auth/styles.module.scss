@@ -6,8 +6,8 @@
     max-width: 400px;
     border: none;
     border-radius: 30px 0px;
-    padding: 40px 40px;
-    margin: 20vh 0;
+    padding: 40px 20px;
+    margin: 40px 0;
   }
 
   &__title {
@@ -43,8 +43,23 @@
     margin-bottom: 0;
   }
 
-  &__link, &:link, &:visited {
+  &__toggleAuth {
     text-transform: uppercase;
     color: var(--purple);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (min-width: 400px) {
+  .authForm {
+    &__container {
+      padding: 40px;
+    }
   }
 }

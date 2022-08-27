@@ -15,7 +15,11 @@ import DefaultButton from '@atoms/DefaultButton'
 
 import classes from './styles.module.scss'
 
-const SignUpForm = () => {
+export type AuthProps = {
+  toggleAuth: () => void
+}
+
+const SignUpForm = ({ toggleAuth }: AuthProps) => {
   const [feedbackMessage, setFeedbackMessage] = useState<FeedbackMessageProps | null>(null)
 
   const router = useRouter()
@@ -50,7 +54,7 @@ const SignUpForm = () => {
 
   return (
     <section className={classes.authForm__container}>
-      <h1 className={classes.authForm__title}>SIGN UP</h1>
+      <h2 className={classes.authForm__title}>SIGN UP</h2>
       {feedbackMessage && 
         <FeedbackMessage 
           text={feedbackMessage.text} 
@@ -98,9 +102,13 @@ const SignUpForm = () => {
       <GithubButton text='Sign up with Github' />
       <p className={classes.authForm__paragraph}>
         Already a user?{' '}
-        <Link href='/login'>
-          <a className={classes.authForm__link}>Log in</a>
-        </Link>
+        <button 
+          type='button'
+          className={classes.authForm__toggleAuth}
+          onClick={toggleAuth}
+        >
+          Log in
+        </button>
       </p>
     </section>
   )
