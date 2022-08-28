@@ -110,7 +110,7 @@ export const getUserData = async (userEmail: string) => {
     if (!response.ok) {
       throw new Error(data.message)
     }
-    
+
     return data.user
  
   } catch (e: any) {

@@ -12,7 +12,15 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     const client = await connectToUsersDatabase()
     const db = client.db()
 
-    const userData = await db.collection('users').findOne({email: userEmail})
+    const userInfo = await db.collection('users').findOne({email: userEmail})
+    
+    const userData = {
+      id: userInfo?._id,
+      email: userInfo?.email,
+      favorites: userInfo?.favorites,
+      correctAnswers: userInfo?.correctAnswers,
+      totalAnswers: userInfo?.totalAnswers
+    }
 
     res.status(200).json({ user: userData })
     client.close()

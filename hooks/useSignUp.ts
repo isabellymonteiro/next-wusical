@@ -53,7 +53,7 @@ const useSignUp = (
     signUpDataErrors,
     handleChange,
     handleSubmit,
-  };
-};
+  }
+}
 
 export default useSignUp

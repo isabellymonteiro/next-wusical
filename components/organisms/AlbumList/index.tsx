@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react'
-import { useSession } from 'next-auth/react'
 import AlbumCard from '@molecules/AlbumCard'
-import { getUserData } from '@services/api'
+import useUserData from '@hooks/useUserData'
 import LoadingSpinner from '@atoms/icons/LoadingSpinner'
 import Error from '@molecules/Error'
 
@@ -24,39 +22,9 @@ type Props = {
   onlyFavorites?: boolean
 }
 
-type Favorites = {
-  [albumId: string]: boolean
-}
-
 const AlbumList = ({ albums, onlyFavorites }: Props) => {
-  const [userFavorites, setUserFavorites] = useState<Favorites>()
-  const [error, setError] = useState<boolean>(false)
-  const [loading, setLoading] = useState<boolean>(false)
 
-  const { data: session } = useSession()
-  const userEmail = session?.user?.email
-
-  useEffect(() => {
-    const fetchUserData = async(userEmail: string | null | undefined) => {
-      if (!userEmail) {
-        if (!loading) setLoading(true)
-        return
-      }
-
-      if (!loading) setLoading(true)
-
-      const userData = await getUserData(userEmail)
-
-      if (userData.error) {
-        setError(true)
-        return
-      }
-      setUserFavorites(userData.favorites)
-      setLoading(false)
-    }
-    
-    fetchUserData(userEmail)
-  }, [userEmail])
+ const { userData, error, loading } = useUserData()
 
   return (
     <>
@@ -64,29 +32,29 @@ const AlbumList = ({ albums, onlyFavorites }: Props) => {
       {loading && !error &&
         <div className={classes.albumList__loading}><LoadingSpinner /></div>
       }
-      {userFavorites && !loading && (
+      {userData?.favorites && !loading && (
         <>
-          {onlyFavorites && Object.keys(userFavorites).length === 0 ? 
+          {onlyFavorites && Object.keys(userData.favorites).length === 0 ? 
             <p className={classes['albumList--empty']}>You haven't liked anything yet.</p> : (
             <ul className={classes.albumList}>
               {albums.map((album: Album) => {
                 if (onlyFavorites) {
-                  if (userFavorites[album._id]) {
+                  if (userData.favorites[album._id]) {
                     return (
                       <AlbumCard 
                         key={album._id}
-                        userEmail={userEmail!}
+                        userEmail={userData.email}
                         album={album}
                         isFavorited
                       />
                     )
                   }
                 } else {
-                  if (userFavorites[album._id]) {
+                  if (userData.favorites[album._id]) {
                     return (
                       <AlbumCard 
                         key={album._id}
-                        userEmail={userEmail!}
+                        userEmail={userData.email}
                         album={album}
                         isFavorited
                       />
@@ -96,7 +64,7 @@ const AlbumList = ({ albums, onlyFavorites }: Props) => {
                   return (
                     <AlbumCard 
                       key={album._id}
-                      userEmail={userEmail!}
+                      userEmail={userData.email}
                       album={album}
                     />
                   )
