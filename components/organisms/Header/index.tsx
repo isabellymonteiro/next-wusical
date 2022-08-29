@@ -12,7 +12,7 @@ const Header = () => {
     <header className={classes.header}>
       <div className={`${session ? classes.header__userContent : classes.header__defaultContent}`}>
         <Link href='/'>
-           <a className={classes.header__logo}>Wusical</a>
+           <p className={classes.header__logo}>Wusical</p>
         </Link>
         {session &&
           <>

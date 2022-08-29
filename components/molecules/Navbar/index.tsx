@@ -8,6 +8,7 @@ import MenuOpen from '@atoms/icons/MenuOpen'
 import classes from './styles.module.scss'
 
 const navLinks = [
+  { name: 'Home', path: '/dashboard' },
   { name: 'Quiz', path: '/quiz' },
   { name: 'Discover', path: '/discover' },
   { name: 'Suggestions', path: '/suggestions' }
