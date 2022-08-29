@@ -19,7 +19,7 @@ export type Album = {
 }
 
 type Props = {
-  albums: Album[],
+  albums: Album[] | null,
   onlyFavorites?: boolean
 }
 
@@ -33,7 +33,8 @@ const AlbumList = ({ albums, onlyFavorites }: Props) => {
       {loading && !error &&
         <div className={classes.albumList__loading}><LoadingSpinner /></div>
       }
-      {userData?.favorites && !loading && (
+      {!albums && <p className={classes.albumList__noResults}>No results found.</p>}
+      {albums && userData?.favorites && !loading && (
         <>
           {onlyFavorites && 
           (Object.keys(userData.favorites).length === 0 ||
