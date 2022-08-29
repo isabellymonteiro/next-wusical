@@ -6,10 +6,10 @@ import PageTitle from '@atoms/PageTitle'
 
 const Discover: NextPage = ({ albums }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <>
+    <div>
       <PageTitle title='Discover' />
       <AlbumList albums={albums} />
-    </>
+    </div>
   )
 }
  

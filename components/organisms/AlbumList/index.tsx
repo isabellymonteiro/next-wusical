@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import AlbumCard from '@molecules/AlbumCard'
 import useUserData from '@hooks/useUserData'
 import LoadingSpinner from '@atoms/icons/LoadingSpinner'
@@ -34,8 +35,17 @@ const AlbumList = ({ albums, onlyFavorites }: Props) => {
       }
       {userData?.favorites && !loading && (
         <>
-          {onlyFavorites && Object.keys(userData.favorites).length === 0 ? 
-            <p className={classes['albumList--empty']}>You haven't liked anything yet.</p> : (
+          {onlyFavorites && 
+          (Object.keys(userData.favorites).length === 0 ||
+          Object.values(userData.favorites).every(value => value === false)) ?
+            <div className={classes['albumList--empty']}>
+              <p>You haven't liked anything yet.</p>
+              <Link href='/discover'>
+                <a className={classes.albumList__link}>
+                  Go to discover
+                </a>
+              </Link>
+            </div> : (
             <ul className={classes.albumList}>
               {albums.map((album: Album) => {
                 if (onlyFavorites) {

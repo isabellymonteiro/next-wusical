@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import Navbar from '@molecules/Navbar'
-import FavoritesLink from '@molecules/FavoritesLink'
 import UserSettings from '@molecules/UserSettings'
 
 import classes from './styles.module.scss'
@@ -18,8 +17,7 @@ const Header = () => {
         {session &&
           <>
             <Navbar />
-            <div className={classes.header__userLinks}>
-              <FavoritesLink />
+            <div className={classes.header__userSettings}>
               <UserSettings />
             </div>
           </>

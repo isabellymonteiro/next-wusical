@@ -8,15 +8,32 @@
   &__loading {
     display: grid;
     place-items: center;
-    min-height: 40vh;
+    min-height: 20vh;
   }
 
   &--empty {
     display: grid;
     place-items: center;
-    font-size: var(--text-4xlarge);
+    font-size: var(--text-2xlarge);
     font-weight: 500;
     color: var(--white);
-    min-height: 40vh;
+    margin-bottom: 20px;
+  }
+
+  &__link, &__link:visited, &__link:link {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--light-purple);
+    font-size: var(--text-large);
+    font-weight: 600;
+    background-color: var(--purple);
+    border-radius: 10px;
+    padding: 10px 12px;
+    transition: .2s;
+
+    &:hover {
+      color: var(--purple);
+      background-color: var(--light-purple);
+    }
   }
 }

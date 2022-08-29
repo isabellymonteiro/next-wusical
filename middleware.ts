@@ -24,7 +24,6 @@ export const config = {
     '/discover/:slug',
     '/quiz',
     '/suggestions',
-    '/favorites',
     '/change-password'
   ],
 }
