@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, MouseEvent } from 'react'
 import Link from 'next/link'
 import useWindowWidth from '@hooks/useWindowWidth'
 import MenuClose from '@atoms/icons/MenuClose'
 import MenuOpen from '@atoms/icons/MenuOpen'
+import useAutoClose from '@hooks/useAutoClose'
 
 import classes from './styles.module.scss'
 
@@ -16,6 +17,9 @@ const navLinks = [
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const menu = useRef<HTMLDivElement | null>(null)
+
+  useAutoClose(setIsMobileMenuOpen, menu)
 
   const router = useRouter()
   const windowWidth = useWindowWidth()
@@ -26,7 +30,8 @@ const Navbar = () => {
     }
   }, [windowWidth])
   
-  const handleMobileMenuClick = () => {
+  const handleMobileMenuClick = (e: MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation()
     setIsMobileMenuOpen((prevState) => !prevState)
   }
   
@@ -42,11 +47,16 @@ const Navbar = () => {
         type='button'
         className={classes.mobileNavbar__button}
         onClick={handleMobileMenuClick}
+        aria-expanded={isMobileMenuOpen}
         aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
       >
         {isMobileMenuOpen ? <MenuClose /> : <MenuOpen />}
       </button>
-      <div className={`${classes.navbar} ${isMobileMenuOpen ? classes['mobileNavbar--open'] : classes['mobileNavbar--close']}`}>
+      <div
+        ref={menu}
+        aria-hidden={!isMobileMenuOpen}
+        className={`${classes.navbar}
+        ${isMobileMenuOpen ? classes['mobileNavbar--open'] : classes['mobileNavbar--close']}`}>
         <ul className={classes.navbar__items}>
           {navLinks.map((link) => {
             return (

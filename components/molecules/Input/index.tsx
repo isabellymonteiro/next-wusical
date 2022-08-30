@@ -43,6 +43,7 @@ const Input = ({
           value={value}
           onChange={handleOnChange}
           ref={refProp}
+          autoComplete='on'
         />
       {showPassword && 
         <button 
