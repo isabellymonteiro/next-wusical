@@ -1,5 +1,5 @@
 .pageTitle {
-  font-size: var(--text-9xlarge);
+  font-size: clamp(var(--text-6xlarge), 4vw, var(--text-9xlarge));
   font-weight: 700;
   color: var(--white);
   padding-top: 50px;

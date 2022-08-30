@@ -1,8 +1,11 @@
 .answerButton {
   color: var(--dark-blue);
   font-family: var(--font-family);
-  font-size: var(--text-base);
+  font-size: clamp(var(--text-small), 2vw, var(--text-base));
   font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   background-color: var(--lighter-blue);
   border: none;
   border-radius: 10px;

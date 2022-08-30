@@ -26,6 +26,7 @@
 .navbar {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+
   &__items {
     display: flex;
     flex-direction: column;
@@ -42,7 +43,7 @@
 
   &__link {
     color: var(--dark-blue);
-    font-size: var(--text-large);
+    font-size: clamp(var(--text-base), 3vw, var(--text-large));
     font-weight: 600;
     text-decoration: none;
 

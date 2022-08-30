@@ -4,7 +4,7 @@
   margin-top: 20px;
 
   &__number {
-    font-size: var(--text-base);
+    font-size: clamp(var(--text-small), 2vw, var(--text-base));
     font-weight: 500;
     text-align: center;
     margin: 0;
@@ -12,7 +12,7 @@
   }
 
   &__description {
-    font-size: var(--text-xlarge);
+    font-size: clamp(var(--text-base), 2.4vw, var(--text-xlarge));
     font-weight: 500;
     text-align: center;
     margin: 0;
@@ -25,7 +25,7 @@
     align-items: center;
 
     &Text {
-      font-size: var(--text-small);
+      font-size: clamp(var(--text-xsmall), 2vw, var(--text-small));
       font-weight: 500;
       text-align: center;
       background-color: var(--light-yellow);

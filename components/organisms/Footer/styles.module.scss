@@ -1,5 +1,6 @@
 .footer {
   color: var(--dark-blue);
+  font-size: clamp(var(--text-small), 2vw, var(--text-base));
   background-color: var(--white);
   margin-top: auto; // always at the bottom
 

@@ -41,7 +41,7 @@
 
   &__link, &__listButton {
     color: var(--dark-blue);
-    font-size: var(--text-base);
+    font-size: clamp(var(--text-small), 2vw, var(--text-base));
     font-weight: 600;
   }
 

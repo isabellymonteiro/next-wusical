@@ -12,7 +12,7 @@
 
   &__title {
     color: var(--dark-blue);
-    font-size: var(--text-large);
+    font-size: clamp(var(--text-base), 2.8vw, var(--text-xlarge));
     font-weight: 800;
     text-transform: uppercase;
     margin: 0;

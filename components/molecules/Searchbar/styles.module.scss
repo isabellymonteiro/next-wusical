@@ -28,7 +28,7 @@
 
   &__input {
     font-family: var(--font-family);
-    font-size: var(--text-base);
+    font-size: clamp(var(--text-small), 2vw, var(--text-base));
     font-weight: 500;
     color: var(--dark-blue);
     width: 100%;

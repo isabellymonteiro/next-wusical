@@ -7,7 +7,7 @@
 
   &__title {
     color: var(--light-purple);
-    font-size: var(--text-11xlarge);
+    font-size: clamp(var(--text-9xlarge), 6vw, var(--text-11xlarge));
     font-weight: 700;
     margin: 16% 0;
   }
@@ -15,7 +15,7 @@
   &__subheading {
     color: var(--white);
     display: block;
-    font-size: var(--text-xlarge);
+    font-size: clamp(var(--text-large), 3vw, var(--text-2xlarge));
     font-weight: 400;
     text-transform: uppercase;
     margin-top: 10px;
@@ -23,7 +23,7 @@
 
   &__description {
     color: var(--light-purple);
-    font-size: var(--text-xlarge);
+    font-size: clamp(var(--text-large), 3vw, var(--text-2xlarge));
     font-weight: 500;
   }
 }

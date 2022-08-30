@@ -1,7 +1,7 @@
 .defaultButton {
   color: var(--light-purple);
   font-family: var(--font-family);
-  font-size: var(--text-base);
+  font-size: clamp(var(--text-small), 3vw, var(--text-base));
   font-weight: 700;
   text-transform: uppercase;
   background-color: var(--purple);

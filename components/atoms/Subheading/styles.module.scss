@@ -1,5 +1,5 @@
 .subheading {
-  font-size: var(--text-4xlarge);
+  font-size: clamp(var(--text-xlarge), 3vw, var(--text-4xlarge));
   font-weight: 600;
   color: var(--light-purple);
   padding: 20px 0;

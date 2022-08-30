@@ -14,7 +14,7 @@
   &__noResults {
     display: grid;
     place-items: center;
-    font-size: var(--text-2xlarge);
+    font-size: clamp(var(--text-base), 2.4vw, var(--text-2xlarge));
     font-weight: 500;
     color: var(--white);
     min-height: 20vh;
@@ -23,7 +23,7 @@
   &--empty {
     display: grid;
     place-items: center;
-    font-size: var(--text-2xlarge);
+    font-size: clamp(var(--text-base), 2.4vw, var(--text-2xlarge));
     font-weight: 500;
     color: var(--white);
     margin-bottom: 20px;
@@ -33,7 +33,7 @@
     text-decoration: none;
     text-transform: uppercase;
     color: var(--light-purple);
-    font-size: var(--text-large);
+    font-size: clamp(var(--text-small), 3vw, var(--text-large));
     font-weight: 600;
     background-color: var(--purple);
     border-radius: 10px;
