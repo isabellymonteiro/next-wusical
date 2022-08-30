@@ -1,5 +1,5 @@
 import { useRef, KeyboardEvent } from 'react'
-import DefaultButton from '@atoms/DefaultButton'
+import SearchIcon from '@atoms/icons/Search'
 
 import classes from './styles.module.scss'
 
@@ -21,7 +21,7 @@ const Searchbar = ({ handleSearch }: Props) => {
           htmlFor='searchbarInput'
           className={classes['searchbar__inputLabel--visuallyHidden']}
         >
-          Search:
+          Search album or artist
         </label>
         <input
           className={classes.searchbar__input}
@@ -32,10 +32,14 @@ const Searchbar = ({ handleSearch }: Props) => {
           ref={searchbarInputRef}
         />
       </div>
-      <DefaultButton 
-        text='Search' 
-        type='button' 
-        handleOnClick={() => handleSearch(searchbarInputRef?.current?.value.trim()!)}/>
+      <button
+        type='button'
+        aria-label='Search'
+        className={classes.searchbar__button}
+        onClick={() => handleSearch(searchbarInputRef?.current?.value.trim()!)}
+      >
+        <SearchIcon />
+      </button>
     </div>
   )
 }

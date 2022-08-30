@@ -22,7 +22,7 @@ const Discover: NextPage = ({ albums }: InferGetStaticPropsType<typeof getStatic
   
   const handleSearch = (searchTerm: string) => {
     if (searchTerm === '') {
-      return
+      setFilteredAlbums(albums)
     } else {
       const filteredData = albums.filter((album: Album) =>
         album.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
