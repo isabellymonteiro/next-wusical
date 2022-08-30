@@ -1,4 +1,5 @@
 import type { InferGetStaticPropsType, NextPage, GetStaticProps } from 'next'
+import Head from 'next/head'
 import { connectToAlbumsDatabase } from '@helpers/db'
 import useUserData from '@hooks/useUserData'
 import LoadingSpinner from '@atoms/icons/LoadingSpinner'
@@ -15,6 +16,9 @@ const Dashboard: NextPage = ({
 
   return (
     <div>
+      <Head>
+          <title>Dashboard</title>
+      </Head>
       <PageTitle title='My dashboard' />
       {error && <Error />}
       {loading && !error && (

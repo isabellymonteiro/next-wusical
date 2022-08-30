@@ -1,4 +1,5 @@
 import type { InferGetServerSidePropsType, NextPage } from 'next'
+import Head from 'next/head'
 import { GetServerSideProps } from 'next'
 import { connectToAlbumsDatabase } from '@helpers/db'
 import { ObjectId } from 'mongodb'
@@ -17,6 +18,9 @@ const Album: NextPage = ({
   
   return (
     <div style={{ maxWidth: '800px', marginBottom: '40px' }}>
+      <Head>
+          <title>{name}</title>
+      </Head>
       <AlbumDetailed 
         artist={artist}
         name={name}

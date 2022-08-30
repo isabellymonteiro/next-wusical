@@ -1,4 +1,5 @@
 import type { InferGetStaticPropsType, NextPage } from 'next'
+import Head from 'next/head'
 import { useState } from 'react'
 import { GetStaticProps } from 'next'
 import { connectToAlbumsDatabase } from '@helpers/db'
@@ -38,6 +39,9 @@ const Discover: NextPage = ({ albums }: InferGetStaticPropsType<typeof getStatic
 
   return (
     <div>
+      <Head>
+          <title>Discover</title>
+      </Head>
       <PageTitle title='Discover' />
       <Searchbar handleSearch={handleSearch} />
       <AlbumList albums={filteredAlbums} />

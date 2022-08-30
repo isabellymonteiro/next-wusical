@@ -1,6 +1,5 @@
 import type { NextPage } from 'next'
 import { useState } from 'react'
-import Head from 'next/head'
 import { unstable_getServerSession } from 'next-auth/next'
 import { GetServerSideProps } from 'next'
 import { authOptions } from './api/auth/[...nextauth]'
@@ -18,11 +17,6 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      <Head>
-        <title>Wusical</title>
-        <meta name='description' content='Women in Music — quiz and discover' />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
       <div className={classes.home}>
         <div className={classes.home__wusical}>
           <h1 className={classes.home__title}>
