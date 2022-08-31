@@ -31,11 +31,11 @@ const AnswersStats = ({ correctAnswers, totalAnswers }: AnswersStatsProps) => {
           <div className={classes.answersStats}>
             <div className={classes.answersStats__answers}>
               <span className={classes.answersStats__correctSquare}></span>
-              <p>Correct answers: {correctAnswers} ({(correctAnswers / totalAnswers * 100) + '%'})</p>
+              <p>Correct answers: {correctAnswers} ({(correctAnswers / totalAnswers * 100).toFixed(2) + '%'})</p>
             </div>
             <div className={classes.answersStats__answers}>
               <span className={classes.answersStats__incorrectSquare}></span>
-              <p>Incorrect answers: {totalAnswers - correctAnswers} ({((totalAnswers - correctAnswers) / totalAnswers * 100) + '%'})</p>
+              <p>Incorrect answers: {totalAnswers - correctAnswers} ({((totalAnswers - correctAnswers) / totalAnswers * 100).toFixed(2) + '%'})</p>
             </div>
             <p>Total: {totalAnswers} (100%)</p>
           </div>
