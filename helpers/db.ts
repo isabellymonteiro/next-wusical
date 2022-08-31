@@ -11,7 +11,7 @@ export async function connectToAlbumsDatabase() {
 }
 
 export async function connectToQuestionsDatabase() {
-  const client = await MongoClient.connect(process.env.QUESTIONS_DB_URL!)
+  const client = await MongoClient.connect(process.env.QUESTIONS_DB_URL)
   return client
 }
 
