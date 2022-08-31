@@ -58,26 +58,6 @@ export const changePassword = async (passwordData: { oldPassword: string, newPas
   }
 }
 
-/* 
-- called directly inside getStaticProps instead (runs on the server, no need to fetch my own api)
-
-export const getAlbums = async () => {
-  try {
-    const response = await fetch('api/albums')
-   
-    const data = await response.json()
- 
-    if (!response.ok) {
-      throw new Error(data.message)
-    }
- 
-    return data
- 
-  } catch (e: any) {
-    return { error: e.message }
-  }
-} */
-
 export const updateFavorite = async (userEmail: string, albumId: string) => {
   try {
     const response = await fetch('api/user/favorite', {
