@@ -13,6 +13,7 @@ const Footer = () => {
             className={classes.footer__link}
             href='https://github.com/isabellymonteiro'
             target='_blank'
+            rel='noopener noreferrer'
           >
             Isabelly Monteiro
           </a>

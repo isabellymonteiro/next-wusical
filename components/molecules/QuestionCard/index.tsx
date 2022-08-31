@@ -35,7 +35,7 @@ const QuestionCard = ({
   }
 
   useEffect(() => {
-    if (showHint) setShowHint(false)
+    setShowHint(false)
   }, [question])
 
   const options = question.answers.map((answer) => {

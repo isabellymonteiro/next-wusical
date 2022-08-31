@@ -64,7 +64,7 @@ const ChangePasswordForm = () => {
   return (
     <section className={classes.authForm__container}>
       <h1 className={classes.authForm__title}>Change Password</h1>
-      <p className={classes.authForm__warning}>If you logged in with Github, you won't be able to change your password.</p>
+      <p className={classes.authForm__warning}>If you logged in with Github, you won&apos;t be able to change your password.</p>
       {feedbackMessage &&
         <FeedbackMessage
           text={feedbackMessage.text}

@@ -17,7 +17,7 @@ const AnswersStats = ({ correctAnswers, totalAnswers }: AnswersStatsProps) => {
     <>
       {totalAnswers === 0 ?
         <div className={classes['answersStats--empty']}>
-          <p>You haven't answered anything yet.</p>
+          <p>You haven&apos;t answered anything yet.</p>
           <Link href='/quiz'>
             <a className={classes.answersStats__link}>
               Go to quiz

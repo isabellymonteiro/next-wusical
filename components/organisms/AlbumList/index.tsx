@@ -40,7 +40,7 @@ const AlbumList = ({ albums, onlyFavorites }: Props) => {
           (Object.keys(userData.favorites).length === 0 ||
           Object.values(userData.favorites).every(value => value === false)) ?
             <div className={classes['albumList--empty']}>
-              <p>You haven't liked anything yet.</p>
+              <p>You haven&apos;t liked anything yet.</p>
               <Link href='/discover'>
                 <a className={classes.albumList__link}>
                   Go to discover
