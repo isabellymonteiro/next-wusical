@@ -3,6 +3,10 @@ import type { NextRequest } from 'next/server'
 import { getToken } from 'next-auth/jwt'
 
 export const middleware = async (req: NextRequest) => {
+  if (req.nextUrl.pathname.startsWith('/_next')) {
+    return NextResponse.next();
+  }
+
   const session = await getToken({
     req: req,
     secret: process.env.NEXTAUTH_SECRET,
