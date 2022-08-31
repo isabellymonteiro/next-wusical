@@ -6,7 +6,7 @@ Deployed on Vercel: [Wusical](https://wusical.vercel.app/)
 
 ## Tools
 
-<div style="display: inline_block">
+<div style="display: inline_block" align="center">
   <img height="30" alt="Next.js" src="https://img.shields.io/badge/-Next.js-000000?style=flat-square&logo=next.js" />
   <img height="30 alt="NextAuth" src="https://img.shields.io/badge/-NextAuth.js-000000?style=flat-square&logo=next.js" />
   <img height="30" alt="React" src="https://img.shields.io/badge/-React-000000?style=flat-square&logo=react" />
