@@ -23,18 +23,18 @@ const Navbar = () => {
 
   const router = useRouter()
   const windowWidth = useWindowWidth()
-  
+
   useEffect(() => {
     if (windowWidth && windowWidth >= 800) {
       setIsMobileMenuOpen(false)
     }
   }, [windowWidth])
-  
+
   const handleMobileMenuClick = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
     setIsMobileMenuOpen((prevState) => !prevState)
   }
-  
+
   const handleMobileNavigationClick = () => {
     if (isMobileMenuOpen) {
       setIsMobileMenuOpen(false)

@@ -10,7 +10,7 @@ const useSignUp = (
   callback: () => void,
   validate: (signUpData: signUpData) => Error
 ) => {
-  
+
   const initialSignUpData = {
     email: ``,
     password: ``,

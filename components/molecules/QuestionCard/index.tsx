@@ -28,7 +28,7 @@ const QuestionCard = ({
   questionNumber,
   totalQuestions
 }: Props) => {
-  const [showHint, setShowHint] = useState<boolean>(false)
+  const [showHint, setShowHint] = useState(false)
 
   const toggleHint = () => {
     setShowHint(prev => !prev)

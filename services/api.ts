@@ -1,5 +1,13 @@
 import { shuffleArray } from '@utils/shuffleArray'
 
+const handleError = (e: unknown) => {
+  if (e instanceof Error) {
+    return { error: e.message }
+  }
+
+  return { error: 'Unknown error' }
+}
+
 type AllQuestionData = {
   translations: { en: {
     description: string,
@@ -21,7 +29,7 @@ export const createUser = async (email: string, password: string) => {
         'Content-Type': 'application/json'
       }
     })
-    
+
     const data = await response.json()
 
     if (!response.ok) {
@@ -29,9 +37,9 @@ export const createUser = async (email: string, password: string) => {
     }
 
     return data
-    
-  } catch (e: any) {
-    return { error: e.message }
+
+  } catch (e: unknown) {
+    return handleError(e)
   }
 }
 
@@ -44,7 +52,7 @@ export const changePassword = async (passwordData: { oldPassword: string, newPas
         'Content-Type': 'application/json'
       }
     })
-    
+
     const data = await response.json()
 
     if (!response.ok) {
@@ -52,9 +60,9 @@ export const changePassword = async (passwordData: { oldPassword: string, newPas
     }
 
     return data
-    
-  } catch (e: any) {
-    return { error: e.message }
+
+  } catch (e: unknown) {
+    return handleError(e)
   }
 }
 
@@ -70,31 +78,31 @@ export const updateFavorite = async (userEmail: string, albumId: string) => {
         albumId: albumId
       })
     })
-   
+
     const data = await response.json()
- 
+
     if (!response.ok) {
       throw new Error(data.message)
     }
-  } catch (e: any) {
-    return { error: e.message }
+  } catch (e: unknown) {
+    return handleError(e)
   }
 }
 
 export const getUserData = async (userEmail: string) => {
   try {
     const response = await fetch(`api/user/${userEmail}`)
-   
+
     const data = await response.json()
- 
+
     if (!response.ok) {
       throw new Error(data.message)
     }
 
     return data.user
- 
-  } catch (e: any) {
-    return { error: e.message }
+
+  } catch (e: unknown) {
+    return handleError(e)
   }
 }
 
@@ -107,26 +115,26 @@ export const sendMessage = async (message: string) => {
         'Content-Type': 'application/json'
       }
     })
-   
+
     const data = await response.json()
- 
+
     if (!response.ok) {
       throw new Error(data.message)
     }
-    
+
     return data
- 
-  } catch (e: any) {
-    return { error: e.message }
+
+  } catch (e: unknown) {
+    return handleError(e)
   }
 }
 
 export const getQuestions = async (total: number) => {
   try {
     const response = await fetch(`api/questions/${total}`)
-   
+
     const data = await response.json()
- 
+
     if (!response.ok) {
       throw new Error(data.message)
     }
@@ -136,7 +144,7 @@ export const getQuestions = async (total: number) => {
         ...question.incorrect_answers,
         question.correct_answer
       ])
-  
+
       return (
         {
           id: question._id,
@@ -149,9 +157,9 @@ export const getQuestions = async (total: number) => {
     })
 
     return transformedData
-    
-  } catch (e: any) {
-    return { error: e.message }
+
+  } catch (e: unknown) {
+    return handleError(e)
   }
 }
 
@@ -167,13 +175,13 @@ export const updateUserAnswers = async (correctAnswers: number, totalAnswers: nu
         totalAnswers: totalAnswers
       })
     })
-   
+
     const data = await response.json()
- 
+
     if (!response.ok) {
       throw new Error(data.message)
-    } 
-  } catch (e: any) {
-    return { error: e.message }
+    }
+  } catch (e: unknown) {
+    return handleError(e)
   }
 }

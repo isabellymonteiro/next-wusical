@@ -9,10 +9,10 @@ import SignUpForm from '@organisms/Auth/SignUpForm'
 import classes from '../styles/home.module.scss'
 
 const Home: NextPage = () => {
-  const [isLogin, setIsLogin] = useState<boolean>(true)
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
 
   const toggleLogin = () => {
-    setIsLogin(prev => !prev)
+    setIsLoggedIn(prev => !prev)
   }
 
   return (
@@ -27,8 +27,8 @@ const Home: NextPage = () => {
             Take the quiz, discover and suggest
           </p>
         </div>
-        {isLogin ? 
-          <LoginForm toggleAuth={toggleLogin} /> : 
+        {isLoggedIn ?
+          <LoginForm toggleAuth={toggleLogin} /> :
           <SignUpForm toggleAuth={toggleLogin} />
         }
       </div>

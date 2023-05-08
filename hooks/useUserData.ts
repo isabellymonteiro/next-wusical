@@ -12,8 +12,8 @@ type UserData = {
 
 const useUserData = () => {
   const [userData, setUserData] = useState<UserData | null>(null)
-  const [error, setError] = useState<boolean>(false)
-  const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const { data: session } = useSession()
   const userEmail = session?.user?.email
@@ -37,7 +37,7 @@ const useUserData = () => {
       setUserData(userInfo)
       setLoading(false)
     }
-    
+
     fetchUserData(userEmail)
   }, [userEmail])
 

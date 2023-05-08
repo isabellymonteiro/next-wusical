@@ -23,14 +23,14 @@ type Question = {
 }
 
 const QuizWrapper = () => {
-  const [error, setError] = useState<boolean>(false)
-  const [loading, setLoading] = useState<boolean>(false)
+  const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [questions, setQuestions] = useState<Question[]>([])
-  const [questionNumber, setQuestionNumber] = useState<number>(0)
+  const [questionNumber, setQuestionNumber] = useState(0)
   const [userAnswers, setUserAnswers] = useState<Answer[]>([])
-  const [score, setScore] = useState<number>(0)
-  const [gameOver, setGameOver] = useState<boolean>(true)
-  const [showFinalScore, setShowFinalScore] = useState<boolean>(false)
+  const [score, setScore] = useState(0)
+  const [gameOver, setGameOver] = useState(true)
+  const [showFinalScore, setShowFinalScore] = useState(false)
 
   const fetchQuestions = async () => {
     setLoading(true)
@@ -105,10 +105,10 @@ const QuizWrapper = () => {
             />
           }
           {!gameOver && !loading && userAnswers.length === questionNumber + 1 &&
-            <DefaultButton 
+            <DefaultButton
               text={userAnswers.length === TOTAL_QUESTIONS ? 'See result' : 'Next question'}
-              type='button' 
-              handleOnClick={nextQuestion} 
+              type='button'
+              handleOnClick={nextQuestion}
             />
           }
         </div>
